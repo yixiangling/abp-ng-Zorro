@@ -1,0 +1,42 @@
+﻿<div [@routerTransition]>
+    <form nz-form #loginForm="ngForm" id="LoginForm" method="post" novalidate (ngSubmit)="login()" role="form">
+        <nz-alert *ngIf="error" [nzType]="'error'" [nzMessage]="error" [nzShowIcon]="true" class="mb-lg"></nz-alert>
+        <div nz-form-item>
+            <div nz-form-control [nzValidateStatus]="userName">
+                <nz-input [(ngModel)]="loginService.authenticateModel.userNameOrEmailAddress" [nzPlaceHolder]="l('UserNameOrEmail')" [nzSize]="'large'" name="userNameOrEmailAddress" required maxlength="255">
+                    <ng-template #prefix>
+                        <i class="anticon anticon-user"></i>
+                    </ng-template>
+                </nz-input>
+            </div>
+        </div>
+        <div nz-form-item>
+            <div nz-form-control [nzValidateStatus]="password">
+                <nz-input [(ngModel)]="loginService.authenticateModel.password" [nzPlaceHolder]="l('Password')" [nzType]="'password'" [nzSize]="'large'" name="password" required maxlength="32">
+                    <ng-template #prefix>
+                        <i class="anticon anticon-lock"></i>
+                    </ng-template>
+                </nz-input>
+            </div>
+        </div>
+        <div nz-form-item nz-row>
+            <div nz-col [nzSpan]="12">
+                <label nz-checkbox [(ngModel)]="loginService.rememberMe" name="rememberMe" id="rememberme">
+                    <span>{{l("RememberMe")}}</span>
+                </label>
+            </div>
+            <div nz-col [nzSpan]="12" class="text-right">
+                <a class="forgot" (click)="msg.error('请找欧阳锋')">忘记密码？</a>
+            </div>
+        </div>
+        <div nz-form-item>
+            <button nz-button [nzType]="'primary'" [nzLoading]="loading" [nzSize]="'large'" class="ant-btn__block">
+                <span>{{l("LogIn")}}</span>
+            </button>
+        </div>
+    </form>
+    <div class="other">
+        <a *ngIf="isSelfRegistrationAllowed" class="register" [routerLink]="['../register']">{{l("Register")}}</a>
+    </div>
+    
+</div>

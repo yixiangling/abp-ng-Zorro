@@ -1,0 +1,14 @@
+<div class="wrapper">
+    <div class="router-progress-bar" *ngIf="isFetching"></div>
+    <top-bar class="header"></top-bar>
+    <div class="aside">
+        <aside id="leftsidebar" class="aside-inner">
+            <sidebar-user-area></sidebar-user-area>
+            <sidebar-nav></sidebar-nav>
+            <sidebar-footer></sidebar-footer>
+        </aside>
+    </div>
+    <section class="content">
+        <router-outlet></router-outlet>
+    </section>
+</div>

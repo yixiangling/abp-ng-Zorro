@@ -1,0 +1,78 @@
+<form nz-form [formGroup]="form" *ngIf="modalVisible" id="frm_edit_user" (ngSubmit)="save()">
+    <nz-modal [nzVisible]="modalVisible" [nzTitle]="l('EditUser')" [nzConfirmLoading]="loading" [nzContent]="modalContent" [nzFooter]="modalFooter"
+        (nzOnCancel)="handleCancel($event)">
+        <ng-template #modalContent>
+            <nz-tabset>
+                <nz-tab>
+                    <ng-template #nzTabHeading>
+                        用户信息
+                    </ng-template>
+                    <fieldset>
+                        <div nz-form-item nz-row>
+                            <div nz-form-label nz-col [nzSm]="4">
+                                <label for="username" nz-form-item-required>{{l("UserName")}}</label>
+                            </div>
+                            <div nz-form-control nz-col [nzSm]="20" nzHasFeedback [nzValidateStatus]="getFormControl('username')">
+                                <nz-input formControlName="username" [(ngModel)]="user.userName" nzPlaceHolder="输入大于等于2并小于等于32的字符" [nzId]="'username'"></nz-input>
+                                <div nz-form-explain *ngIf="getFormControl('username').dirty&&getFormControl('username').hasError('maxlength')">字符长度小于等于32</div>
+                                <div nz-form-explain *ngIf="getFormControl('username').dirty&&getFormControl('username').hasError('minlength')">字符长度大于等于2</div>
+                                <div nz-form-explain *ngIf="getFormControl('username').dirty&&getFormControl('username').hasError('required')">请输入账户</div>
+                            </div>
+                        </div>
+                        <div nz-form-item nz-row>
+                            <div nz-form-label nz-col [nzSm]="4">
+                                <label for="name" nz-form-item-required>{{l("Name")}}</label>
+                            </div>
+                            <div nz-form-control nz-col [nzSm]="8" nzHasFeedback [nzValidateStatus]="getFormControl('name')">
+                                <nz-input formControlName="name" [(ngModel)]="user.name" nzPlaceHolder="请输入小于等于32的字符" [nzId]="'name'"></nz-input>
+                                <div nz-form-explain *ngIf="getFormControl('name').dirty&&getFormControl('name').hasError('maxlength')">字符长度小于等于32</div>
+                                <div nz-form-explain *ngIf="getFormControl('name').dirty&&getFormControl('name').hasError('required')">请输入姓</div>
+                            </div>
+                            <div nz-form-label nz-col [nzSm]="4">
+                                <label for="surname" nz-form-item-required>{{l("Surname")}}</label>
+                            </div>
+                            <div nz-form-control nz-col [nzSm]="8" nzHasFeedback [nzValidateStatus]="getFormControl('surname')">
+                                <nz-input formControlName="surname" [(ngModel)]="user.surname" nzPlaceHolder="请输入小于等于32的字符" [nzId]="'surname'"></nz-input>
+                                <div nz-form-explain *ngIf="getFormControl('surname').dirty&&getFormControl('surname').hasError('maxlength')">字符长度小于等于32</div>
+                                <div nz-form-explain *ngIf="getFormControl('surname').dirty&&getFormControl('surname').hasError('required')">请输入名</div>
+                            </div>
+                        </div>
+                        <div nz-form-item nz-row>
+                            <div nz-form-label nz-col [nzSm]="4">
+                                <label for="email" nz-form-item-required>{{l("EmailAddress")}}</label>
+                            </div>
+                            <div nz-form-control nz-col [nzSm]="20" nzHasFeedback [nzValidateStatus]="getFormControl('email')">
+                                <nz-input formControlName="email" [(ngModel)]="user.emailAddress" [nzId]="'email'"></nz-input>
+                                <div nz-form-explain *ngIf="getFormControl('email').dirty&&getFormControl('email').hasError('email')">邮箱地址无效</div>
+                            </div>
+                        </div>
+                        <div nz-form-item nz-row>
+                            <div nz-form-control nz-col [nzSpan]="20" [nzOffset]="4">
+                                <label nz-checkbox formControlName="isactive" [(ngModel)]="user.isActive">
+                                    <span>{{l("IsActive")}}</span>
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </nz-tab>
+                <nz-tab>
+                    <ng-template #nzTabHeading>
+                        用户角色
+                    </ng-template>
+                    <!-- <label nz-checkbox formControlName="editrolegroup" *ngFor="let role of roles" [(ngModel)]="role.checked">
+                        <span>{{role.label}}</span>
+                    </label> -->
+                    <nz-checkbox-group formControlName="editrolegroup" [(ngModel)]="roles" ></nz-checkbox-group>
+                </nz-tab>
+            </nz-tabset>
+        </ng-template>
+        <ng-template #modalFooter>
+            <button nz-button [nzType]="'default'" [nzSize]="'large'" type="button" (click)="handleCancel($event)">
+                {{l("Cancel")}}
+            </button>
+            <button nz-button [nzType]="'primary'" [nzSize]="'large'" type="submit" [nzLoading]="isConfirmLoading">
+                {{l("Save")}}
+            </button>
+        </ng-template>
+    </nz-modal>
+</form>

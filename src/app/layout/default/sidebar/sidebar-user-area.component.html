@@ -1,0 +1,14 @@
+﻿<nz-dropdown nzTrigger="click" class="user-block clearfix" style="padding: 24px 0;">
+    <div nz-dropdown class="user-block-dropdown">
+        <nz-avatar class="avatar" [nzIcon]="'user'" [nzSize]="'large'"></nz-avatar>
+        <div class="info">
+            <strong>{{shownLoginName}}</strong>
+            <p class="text-truncate">{{emailAddress}}</p>
+        </div>
+    </div>
+    <ul nz-menu>
+        <li nz-menu-item (click)="msgSrv.success('profile')">{{l('profile')}}</li>
+        <li nz-menu-item (click)="msgSrv.success('settings')">{{l('settings')}}</li>
+        <li nz-menu-item (click)="logout()">{{l('Logout')}}</li>
+    </ul>
+</nz-dropdown>

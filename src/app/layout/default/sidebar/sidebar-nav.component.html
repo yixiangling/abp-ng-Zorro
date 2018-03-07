@@ -1,0 +1,47 @@
+﻿<ul nz-menu [nzMode]="'inline'">
+    <ng-template ngFor let-menuItem [ngForOf]="menuItems" let-mainMenuItemIndex="index">
+        <li *ngIf="showMenuItem(menuItem) && !menuItem.items" nz-menu-item routerLinkActive="ant-menu-item-selected">
+            <a [routerLink]="[menuItem.route]">
+                <i *ngIf="menuItem.icon" class="{{menuItem.icon}}"></i>
+                <span>{{menuItem.name}}</span>
+            </a>
+        </li>
+
+        <li *ngIf="showMenuItem(menuItem) && menuItem.items" nz-submenu>
+            <span title>
+                <i *ngIf="menuItem.icon" class="{{menuItem.icon}}"></i>
+                <span>{{menuItem.name}}</span>
+            </span>
+            <ul>
+                <ng-template ngFor let-subMenuItem [ngForOf]="menuItem.items" let-mainMenuItemIndex="index">
+                    <li *ngIf="showMenuItem(subMenuItem) && !subMenuItem.items" nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <a [routerLink]="[subMenuItem.route]">
+                            <i *ngIf="subMenuItem.icon" class="{{subMenuItem.icon}}"></i>
+                            <span>{{subMenuItem.name}}</span>
+                        </a>
+                    </li>
+
+                    <li *ngIf="showMenuItem(subMenuItem) && subMenuItem.items" nz-submenu>
+                        <span title>
+                            <i *ngIf="subMenuItem.icon" class="{{subMenuItem.icon}}"></i>
+                            <span>{{subMenuItem.name}}</span>
+                        </span>
+
+                        <ul>
+                            <ng-template ngFor let-subSubMenuItem [ngForOf]="subMenuItem.items" let-mainMenuItemIndex="index">
+                                <li *ngIf="showMenuItem(subSubMenuItem) && !subSubMenuItem.items" nz-menu-item routerLinkActive="ant-menu-item-selected">
+                                    <a [routerLink]="[subSubMenuItem.route]">
+                                        <i *ngIf="subSubMenuItem.icon" class="{{subSubMenuItem.icon}}"></i>
+                                        <span>{{subSubMenuItem.name}}</span>
+                                    </a>
+                                </li>
+                            </ng-template>
+                        </ul>
+                    </li>
+                </ng-template>
+            </ul>
+
+        </li>
+
+    </ng-template>
+</ul>

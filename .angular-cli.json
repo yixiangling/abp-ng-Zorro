@@ -1,0 +1,93 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "TestTemplate"
+  },
+  "apps": [
+    {
+      "root": "src",
+      "outDir": "dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.json",
+      "prefix": "app",
+      "styles": [
+        "../node_modules/font-awesome/css/font-awesome.css",
+        "../node_modules/simple-line-icons/css/simple-line-icons.css",
+        "../node_modules/famfamfam-flags/dist/sprite/famfamfam-flags.css",
+        "../src/shared/core.less"
+      ],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+
+        "../node_modules/lodash/lodash.min.js",
+        "../node_modules/moment/min/moment.min.js",
+        "../node_modules/abp-web-resources/Abp/Framework/scripts/abp.js",
+        "../node_modules/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js",
+        "../node_modules/abp-web-resources/Abp/Framework/scripts/libs/abp.moment.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts",
+        "hmr": "environments/environment.hmr.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "files": "src/**/*.ts",
+      "project": "src/tsconfig.json"
+    },
+    {
+      "files": "e2e/**/*.ts",
+      "project": "e2e/tsconfig.json"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "less",
+    "class": {
+      "spec": false
+    },
+    "component": {
+      "flat": false,
+      "spec": false,
+      "inlineStyle": true,
+      "inlineTemplate": false
+    },
+    "directive": {
+      "spec": false
+    },
+    "guard": {
+      "spec": false
+    },
+    "interface": {
+      "prefix": "I"
+    },
+    "module": {
+      "spec": false
+    },
+    "pipe": {
+      "spec": true
+    },
+    "service": {
+      "spec": false
+    }
+  }
+}
