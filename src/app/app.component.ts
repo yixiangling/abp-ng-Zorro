@@ -7,6 +7,7 @@ import { AppComponentBase } from '@shared/app-component-base';
 })
 export class AppComponent extends AppComponentBase implements OnInit, AfterViewInit {
 
+  isFetching: boolean = false;
   private viewContainerRef: ViewContainerRef;
 
   constructor(

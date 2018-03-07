@@ -1,8 +1,8 @@
 ﻿<div [@routerTransition]>
     <form nz-form #loginForm="ngForm" id="LoginForm" method="post" novalidate (ngSubmit)="login()" role="form">
-        <nz-alert *ngIf="error" [nzType]="'error'" [nzMessage]="error" [nzShowIcon]="true" class="mb-lg"></nz-alert>
+        <!-- <nz-alert *ngIf="error" [nzType]="'error'" [nzMessage]="error" [nzShowIcon]="true" class="mb-lg"></nz-alert> -->
         <div nz-form-item>
-            <div nz-form-control [nzValidateStatus]="userName">
+            <div nz-form-control>
                 <nz-input [(ngModel)]="loginService.authenticateModel.userNameOrEmailAddress" [nzPlaceHolder]="l('UserNameOrEmail')" [nzSize]="'large'" name="userNameOrEmailAddress" required maxlength="255">
                     <ng-template #prefix>
                         <i class="anticon anticon-user"></i>
@@ -11,7 +11,7 @@
             </div>
         </div>
         <div nz-form-item>
-            <div nz-form-control [nzValidateStatus]="password">
+            <div nz-form-control>
                 <nz-input [(ngModel)]="loginService.authenticateModel.password" [nzPlaceHolder]="l('Password')" [nzType]="'password'" [nzSize]="'large'" name="password" required maxlength="32">
                     <ng-template #prefix>
                         <i class="anticon anticon-lock"></i>
@@ -26,11 +26,11 @@
                 </label>
             </div>
             <div nz-col [nzSpan]="12" class="text-right">
-                <a class="forgot" (click)="msg.error('请找欧阳锋')">忘记密码？</a>
+                <a class="forgot" >忘记密码？</a>
             </div>
         </div>
         <div nz-form-item>
-            <button nz-button [nzType]="'primary'" [nzLoading]="loading" [nzSize]="'large'" class="ant-btn__block">
+            <button nz-button [nzType]="'primary'" [nzLoading]="submitting" [nzSize]="'large'" class="ant-btn__block">
                 <span>{{l("LogIn")}}</span>
             </button>
         </div>
