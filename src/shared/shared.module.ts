@@ -124,7 +124,8 @@ const PIPES = [MomentDatePipe, YNPipe];
 
 import { ModalHelper } from './helpers/modal.helper';
 import { AbpMessageService } from './helpers/message.service';
-const HELPERS = [ ModalHelper, AbpMessageService ];
+import { AbpNotifyService } from './helpers/notify.service';
+const HELPERS = [ ModalHelper, AbpMessageService, AbpNotifyService ];
 
 @NgModule({
     imports: [

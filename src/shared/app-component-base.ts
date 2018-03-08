@@ -3,9 +3,9 @@ import { AppConsts } from '@shared/AppConsts';
 import { LocalizationService } from '@abp/localization/localization.service';
 import { PermissionCheckerService } from '@abp/auth/permission-checker.service';
 import { FeatureCheckerService } from '@abp/features/feature-checker.service';
-import { NotifyService } from '@abp/notify/notify.service';
 import { SettingService } from '@abp/settings/setting.service';
 import { AbpMessageService } from './helpers/message.service';
+import { AbpNotifyService } from './helpers/notify.service';
 import { AbpMultiTenancyService } from '@abp/multi-tenancy/abp-multi-tenancy.service';
 import { AppSessionService } from '@shared/session/app-session.service';
 
@@ -16,7 +16,7 @@ export abstract class AppComponentBase {
     localization: LocalizationService;
     permission: PermissionCheckerService;
     feature: FeatureCheckerService;
-    notify: NotifyService;
+    notify: AbpNotifyService;
     setting: SettingService;
     message: AbpMessageService;
     multiTenancy: AbpMultiTenancyService;
@@ -27,7 +27,7 @@ export abstract class AppComponentBase {
         this.localization = injector.get(LocalizationService);
         this.permission = injector.get(PermissionCheckerService);
         this.feature = injector.get(FeatureCheckerService);
-        this.notify = injector.get(NotifyService);
+        this.notify = injector.get(AbpNotifyService);
         this.setting = injector.get(SettingService);
         this.message = injector.get(AbpMessageService);
         this.multiTenancy = injector.get(AbpMultiTenancyService);
