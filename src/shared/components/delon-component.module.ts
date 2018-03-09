@@ -7,9 +7,10 @@ import { AdDescListModule } from './desc-list/desc-list.module';
 import { AdEllipsisModule } from './ellipsis/ellipsis.module';
 import { AdNoticeIconModule } from './notice-icon/notice-icon.module';
 import { AdNumberInfoModule } from './number-info/number-info.module';
+import { AdNumberToChineseModule } from './number-to-chinese/number-to-chinese.module';
 
 const MODULES = [
-    AdProHeaderModule, AdAvatarListModule, AdCountDownModule, AdDescListModule, AdEllipsisModule, AdNoticeIconModule, AdNumberInfoModule
+    AdProHeaderModule, AdAvatarListModule, AdCountDownModule, AdDescListModule, AdEllipsisModule, AdNoticeIconModule, AdNumberInfoModule, AdNumberToChineseModule
 ];
 
 @NgModule({
@@ -20,7 +21,8 @@ const MODULES = [
         AdDescListModule.forRoot(),
         AdEllipsisModule.forRoot(),
         AdNoticeIconModule.forRoot(),
-        AdNumberInfoModule.forRoot()
+        AdNumberInfoModule.forRoot(),
+        AdNumberToChineseModule.forRoot()
     ],
     exports: MODULES
 })
