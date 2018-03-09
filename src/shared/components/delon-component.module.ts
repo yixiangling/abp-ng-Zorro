@@ -1,19 +1,17 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
 import { AdProHeaderModule } from './pro-header/pro-header.module';
+import { AdAvatarListModule } from './avatar-list/avatar-list.module';
 
 const MODULES = [
-    AdProHeaderModule
+    AdProHeaderModule, AdAvatarListModule
 ];
 
 @NgModule({
     imports: [
-        AdProHeaderModule.forRoot()
+        AdProHeaderModule.forRoot(), 
+        AdAvatarListModule.forRoot()
     ],
-    declarations: [
-
-    ],
-    providers: [ ],
     exports: MODULES
 })
 export class DelonComponentModule {
