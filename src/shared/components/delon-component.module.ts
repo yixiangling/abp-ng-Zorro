@@ -10,10 +10,11 @@ import { AdNumberInfoModule } from './number-info/number-info.module';
 import { AdNumberToChineseModule } from './number-to-chinese/number-to-chinese.module';
 import { AdResultModule } from './result/result.module';
 import { AdTagSelectModule } from './tag-select/tag-select.module';
+import { AdTrendModule } from './trend/trend.module';
 
 const MODULES = [
     AdProHeaderModule, AdAvatarListModule, AdCountDownModule, AdDescListModule, AdEllipsisModule, AdNoticeIconModule, AdNumberInfoModule, AdNumberToChineseModule,
-    AdResultModule, AdTagSelectModule
+    AdResultModule, AdTagSelectModule, AdTrendModule
 ];
 
 @NgModule({
@@ -27,7 +28,8 @@ const MODULES = [
         AdNumberInfoModule.forRoot(),
         AdNumberToChineseModule.forRoot(),
         AdResultModule.forRoot(),
-        AdTagSelectModule.forRoot()
+        AdTagSelectModule.forRoot(),
+        AdTrendModule.forRoot()
     ],
     exports: MODULES
 })
