@@ -46,7 +46,7 @@ ABP core免费版的默认angular工程组件框架替换成 ng-Zorro，无其�
 |   组件名称  | 是否迁移    |   说明  |
 | ------------- | ------------- | ------------- |
 |	avatar-list	|	已迁移	|	用法一致	|
-|	charts	    |	等待	|	等	|
+|	charts	    |	等待	|	正在迁移	|
 |	count-down	|	已迁移	|	用法一致	|
 |	desc-list	|	已迁移	|	用法一致	|
 |	down-file	|	_暂无计划_	|	ABP默认后台并无与之匹配的功能	|
@@ -68,7 +68,7 @@ ABP core免费版的默认angular工程组件框架替换成 ng-Zorro，无其�
 |	standard-form-row	|	_不迁移_	|	表单排版交由各实现组件去完成	|
 |	tag-select	|	已迁移	|	用法一致	|
 |	trend	    |	已迁移	|	用法一致	|
-|	utils	    |	_不迁移_	|	无意义，与呈现相关的写pipe，与逻辑相关的写service，不迁移万能类	|
+|	utils	    |	_不迁移_	|	与呈现相关的写pipe，与逻辑相关的写service，不迁移万能类	|
 |	xlsx	    |	_不迁移_	|	此功能交由后端完成	|
 |	zip	        |	_不迁移_	|	此功能交由后端完成	|
 

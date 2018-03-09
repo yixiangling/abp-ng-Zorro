@@ -30,7 +30,11 @@
         "../node_modules/moment/min/moment.min.js",
         "../node_modules/abp-web-resources/Abp/Framework/scripts/abp.js",
         "../node_modules/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js",
-        "../node_modules/abp-web-resources/Abp/Framework/scripts/libs/abp.moment.js"
+        "../node_modules/abp-web-resources/Abp/Framework/scripts/libs/abp.moment.js",
+
+        "../node_modules/@antv/g2/dist/g2.min.js",
+        "../node_modules/@antv/data-set/dist/data-set.min.js",
+        "../node_modules/@antv/g2-plugin-slider/dist/g2-plugin-slider.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
