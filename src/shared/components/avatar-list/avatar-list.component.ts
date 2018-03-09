@@ -4,7 +4,7 @@ import { AvatarListItemComponent } from './avatar-list-item.component';
 @Component({
   selector: 'avatar-list',
   templateUrl: './avatar-list.component.html',
-  styles: []
+  styleUrls: [ './avatar-list.less' ]
 })
 export class AvatarListComponent {
 
