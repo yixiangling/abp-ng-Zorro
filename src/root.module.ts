@@ -17,62 +17,62 @@ import { AppPreBootstrap } from './AppPreBootstrap';
 
 
 export function appInitializerFactory(injector: Injector) {
-  return () => {
+	return () => {
 
-    abp.ui.setBusy();
-    return new Promise<boolean>((resolve, reject) => {
-      AppPreBootstrap.run(() => {
-        var appSessionService: AppSessionService = injector.get(AppSessionService);
-        appSessionService.init().then(
-          (result) => {
-            abp.ui.clearBusy();
-            resolve(result);
-          },
-          (err) => {
-            abp.ui.clearBusy();
-            reject(err);
-          }
-        );
-      });
-    });
-  }
+		abp.ui.setBusy();
+		return new Promise<boolean>((resolve, reject) => {
+			AppPreBootstrap.run(() => {
+				var appSessionService: AppSessionService = injector.get(AppSessionService);
+				appSessionService.init().then(
+					(result) => {
+						abp.ui.clearBusy();
+						resolve(result);
+					},
+					(err) => {
+						abp.ui.clearBusy();
+						reject(err);
+					}
+				);
+			});
+		});
+	}
 }
 
 export function getRemoteServiceBaseUrl(): string {
-  return AppConsts.remoteServiceBaseUrl;
+	return AppConsts.remoteServiceBaseUrl;
 }
 
 export function getCurrentLanguage(): string {
-    return abp.localization.currentLanguage.name;
+	return abp.localization.currentLanguage.name;
 }
 
 @NgModule({
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    SharedModule.forRoot(),
-    AbpModule,
-    ServiceProxyModule,
-    RootRoutingModule
-  ],
-  declarations: [
-    RootComponent
-  ],
-  providers: [
-    ABP_HTTP_PROVIDER,
-    { provide: API_BASE_URL, useFactory: getRemoteServiceBaseUrl },
-    {
-      provide: APP_INITIALIZER,
-      useFactory: appInitializerFactory,
-      deps: [Injector],
-      multi: true
-    },
-      {
-          provide: LOCALE_ID,
-          useFactory: getCurrentLanguage
-      }
-  ],
-  bootstrap: [RootComponent]
+	imports: [
+		BrowserModule,
+		BrowserAnimationsModule,
+		SharedModule.forRoot(),
+		AbpModule,
+		ServiceProxyModule,
+		RootRoutingModule
+	],
+	declarations: [
+		RootComponent
+	],
+	providers: [
+		ABP_HTTP_PROVIDER,
+		{ provide: API_BASE_URL, useFactory: getRemoteServiceBaseUrl },
+		{
+			provide: APP_INITIALIZER,
+			useFactory: appInitializerFactory,
+			deps: [Injector],
+			multi: true
+		},
+		{
+			provide: LOCALE_ID,
+			useFactory: getCurrentLanguage
+		}
+	],
+	bootstrap: [RootComponent]
 })
 export class RootModule {
 

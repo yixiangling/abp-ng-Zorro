@@ -1,5 +1,7 @@
 ﻿import { Component, Injector, ViewEncapsulation } from '@angular/core';
 import { AppComponentBase } from '@shared/app-component-base';
+
+import { MenuService } from '@shared/layout/menu.service';
 import { MenuItem } from '@shared/layout/menu-item';
 
 @Component({
@@ -9,27 +11,22 @@ import { MenuItem } from '@shared/layout/menu-item';
 })
 export class SideBarNavComponent extends AppComponentBase {
 
-    menuItems: MenuItem[] = [
-        new MenuItem("默认页", "", "anticon anticon-appstore", "/app/default"),
-        new MenuItem("管理", "", "anticon anticon-appstore", "", [
-            new MenuItem(this.l("HomePage"), "", "anticon anticon-appstore", "/app/pages/home"),
-            new MenuItem(this.l("Users"), "Pages.Users", "anticon anticon-appstore", "/app/pages/users"),
-            new MenuItem(this.l("Tenants"), "Pages.Users", "anticon anticon-appstore", "/app/pages/tenants"),
-            new MenuItem(this.l("Roles"), "Pages.Roles", "anticon anticon-appstore", "/app/pages/roles"),
-            new MenuItem(this.l("About"), "", "anticon anticon-appstore", "/app/pages/about")
-        ]),
-    ];
+    //菜单是通过MenuService中获取，设置菜单的位置在src/app/app.component.ts中。之所以这么干是因为在其他组件中需要获得菜单信息，因此将菜单数据放到服务中，以便共享给其他组件使用
+    menuItems: MenuItem[];
 
     constructor(
-        injector: Injector
+        injector: Injector,
+		private menuService: MenuService
     ) {
         super(injector);
+
+        this.menuItems = this.menuService.menus;
     }
 
     showMenuItem(menuItem): boolean {
-        // if (menuItem.permissionName) {
-        //     return this.permission.isGranted(menuItem.permissionName);
-        // }
+        if (menuItem.permissionName) {
+            return this.permission.isGranted(menuItem.permissionName);
+        }
 
         return true;
     }

@@ -33,7 +33,6 @@ import { DefaultPageComponent } from '@app/default/default-page.component';
         LayoutModule
     ],
     providers: [
-
     ]
 })
 export class AppModule { }

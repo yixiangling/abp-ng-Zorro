@@ -13,6 +13,8 @@ import { AppUrlService } from './nav/app-url.service';
 import { AppAuthService } from './auth/app-auth.service';
 import { AppRouteGuard } from './auth/auth-route-guard';
 
+import { DelonComponentModule } from './components/delon-component.module';
+
 
 // region: zorro modules
 
@@ -125,7 +127,8 @@ const PIPES = [MomentDatePipe, YNPipe];
 import { ModalHelper } from './helpers/modal.helper';
 import { AbpMessageService } from './helpers/message.service';
 import { AbpNotifyService } from './helpers/notify.service';
-const HELPERS = [ ModalHelper, AbpMessageService, AbpNotifyService ];
+import { MenuService } from './layout/menu.service';
+const HELPERS = [ ModalHelper, AbpMessageService, AbpNotifyService, MenuService ];
 
 @NgModule({
     imports: [
@@ -137,11 +140,12 @@ const HELPERS = [ ModalHelper, AbpMessageService, AbpNotifyService ];
         NzTreeModule,
         ...ZORROMODULES,
         NgZorroAntdExtraModule.forRoot(),
+        DelonComponentModule.forRoot()
     ],
     declarations: [
         ...PIPES
     ],
-    providers: [ ...HELPERS ],
+    providers: [  ],
     exports: [
         CommonModule,
         FormsModule,
@@ -150,6 +154,7 @@ const HELPERS = [ ModalHelper, AbpMessageService, AbpNotifyService ];
         NzTreeModule,
         ...ZORROMODULES,
         NgZorroAntdExtraModule,
+        DelonComponentModule,
         ...PIPES
     ]
 })
@@ -164,7 +169,8 @@ export class SharedModule {
                 AppSessionService,
                 AppUrlService,
                 AppAuthService,
-                AppRouteGuard
+                AppRouteGuard,
+                ...HELPERS
             ]
         }
     }
