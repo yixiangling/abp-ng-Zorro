@@ -4,9 +4,10 @@ import { AdProHeaderModule } from './pro-header/pro-header.module';
 import { AdAvatarListModule } from './avatar-list/avatar-list.module';
 import { AdCountDownModule } from './count-down/count-down.module';
 import { AdDescListModule } from './desc-list/desc-list.module';
+import { AdEllipsisModule } from './ellipsis/ellipsis.module';
 
 const MODULES = [
-    AdProHeaderModule, AdAvatarListModule, AdCountDownModule, AdDescListModule
+    AdProHeaderModule, AdAvatarListModule, AdCountDownModule, AdDescListModule, AdEllipsisModule
 ];
 
 @NgModule({
@@ -14,7 +15,8 @@ const MODULES = [
         AdProHeaderModule.forRoot(), 
         AdAvatarListModule.forRoot(),
         AdCountDownModule.forRoot(),
-        AdDescListModule.forRoot()
+        AdDescListModule.forRoot(),
+        AdEllipsisModule.forRoot()
     ],
     exports: MODULES
 })
