@@ -1,0 +1,8 @@
+<div *ngIf="_title || _titleTpl" class="title">
+	<ng-container *ngIf="_title; else _titleTpl">{{_title}}</ng-container>
+</div>
+<div nz-row [nzGutter]="gutter">
+	<div nz-col [nzXs]="_xs" [nzSm]="_sm" [nzMd]="_md" *ngFor="let i of _items">
+		<ng-template [ngTemplateOutlet]="i.tpl"></ng-template>
+	</div>
+</div>
