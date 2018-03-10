@@ -133,7 +133,7 @@
                         <nz-badge *ngIf="i.status === 'success'" [nzStatus]="'success'" [nzText]="'成功'"></nz-badge>
                         <nz-badge *ngIf="i.status !== 'success'" [nzStatus]="'processing'" [nzText]="'进行中'"></nz-badge>
                     </td>
-                    <td nz-td>{{i.updatedAt | _date}}</td>
+                    <td nz-td>{{i.updatedAt | toDate}}</td>
                     <td nz-td>{{i.memo}}</td>
                 </tr>
             </tbody>
@@ -158,7 +158,7 @@
                         <nz-badge *ngIf="i.status === 'success'" [nzStatus]="'success'" [nzText]="'成功'"></nz-badge>
                         <nz-badge *ngIf="i.status !== 'success'" [nzStatus]="'processing'" [nzText]="'进行中'"></nz-badge>
                     </td>
-                    <td nz-td>{{i.updatedAt | _date}}</td>
+                    <td nz-td>{{i.updatedAt | toDate}}</td>
                     <td nz-td>{{i.memo}}</td>
                 </tr>
             </tbody>
@@ -183,7 +183,7 @@
                         <nz-badge *ngIf="i.status === 'success'" [nzStatus]="'success'" [nzText]="'成功'"></nz-badge>
                         <nz-badge *ngIf="i.status !== 'success'" [nzStatus]="'processing'" [nzText]="'进行中'"></nz-badge>
                     </td>
-                    <td nz-td>{{i.updatedAt | _date}}</td>
+                    <td nz-td>{{i.updatedAt | toDate}}</td>
                     <td nz-td>{{i.memo}}</td>
                 </tr>
             </tbody>

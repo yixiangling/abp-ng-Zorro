@@ -83,6 +83,7 @@ export class TableStandardComponent implements OnInit {
     _ajaxRefreshData = () => {
         this._ajaxLoading = true;
         this._randomUser.getUsers(this._current, this._pageSize).subscribe((data: any) => {
+            console.warn(data);
             this._ajaxLoading = false;
             this._total = 200;
             this._ajaxDataSet = data.results;

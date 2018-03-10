@@ -136,8 +136,8 @@
                         <td nz-td style="width: 90px">
                             <mini-bar height="15" theme="mini" color="#999" borderWidth="3" [padding]="[0, 0, 0, 0]" [data]="events"></mini-bar>
                         </td>
-                        <td nz-td>{{data.price | _currency}}</td>
-                        <td nz-td>{{data.registered | _date: 'YYYY年MM月DD日'}}</td>
+                        <td nz-td>{{data.price | currency }}</td>
+                        <td nz-td>{{data.registered | toDate: 'YYYY年MM月DD日'}}</td>
                         <td nz-td>
                             <a (click)="showMsg('Edit')">Edit</a>
                             <span nz-table-divider></span>

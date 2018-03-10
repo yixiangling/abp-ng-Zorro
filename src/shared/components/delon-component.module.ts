@@ -11,12 +11,13 @@ import { AdNumberToChineseModule } from './number-to-chinese/number-to-chinese.m
 import { AdResultModule } from './result/result.module';
 import { AdTagSelectModule } from './tag-select/tag-select.module';
 import { AdTrendModule } from './trend/trend.module';
+import { AdStandardFormRowModule } from './standard-form-row/standard-form-row.module';
 
 import { AdChartsModule } from './charts/charts.module';
 
 const MODULES = [
     AdProHeaderModule, AdAvatarListModule, AdCountDownModule, AdDescListModule, AdEllipsisModule, AdNoticeIconModule, AdNumberInfoModule, AdNumberToChineseModule,
-    AdResultModule, AdTagSelectModule, AdTrendModule,
+    AdResultModule, AdTagSelectModule, AdTrendModule, AdStandardFormRowModule, 
     AdChartsModule
 ];
 
@@ -33,6 +34,7 @@ const MODULES = [
         AdResultModule.forRoot(),
         AdTagSelectModule.forRoot(),
         AdTrendModule.forRoot(),
+        AdStandardFormRowModule.forRoot(),
 
         AdChartsModule.forRoot()
     ],

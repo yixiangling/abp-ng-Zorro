@@ -21,9 +21,11 @@ export class ProBasicListComponent implements OnInit {
     }
 
     getData() {
-        this.loading = true;
-        let res = APIS["/api/list"]({ count: 5 })
-        this.data = res;
-        this.loading = false;
+        //this.loading = true;
+        setTimeout(() => {
+            let res = APIS["/api/list"]({ count: 5 });
+            this.data = res;
+            //this.loading = false;
+        }, 1000);
     }
 }

@@ -10,7 +10,7 @@ import { RolesComponent } from './roles/roles.component';
 import { TenantsComponent } from './tenants/tenants.component';
 import { AboutComponent } from './about/about.component';
 
-export const routes: Routes = [
+const routes: Routes = [
     {
         path: '',
         component: LayoutComponent,

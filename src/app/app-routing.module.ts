@@ -17,6 +17,10 @@ import { DefaultPageComponent } from '@app/default/default-page.component';
                         path: 'pages',
                         loadChildren: './pages/pages.module#PagesModule'
                     },
+                    {
+                        path: 'routes',
+                        loadChildren: './routes/routes.module#RoutesModule'
+                    },
                     { path: '**', redirectTo: 'pages' }
                 ]
             }

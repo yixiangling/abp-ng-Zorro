@@ -15,9 +15,7 @@ import { AppRouteGuard } from './auth/auth-route-guard';
 
 import { DelonComponentModule } from './components/delon-component.module';
 
-
 // region: zorro modules
-
 import {
     // LoggerModule,
     // NzLocaleModule,
@@ -65,11 +63,12 @@ import {
     // NzAffixModule,
     // NzAnchorModule,
     NzAvatarModule,
+    NzUploadModule,
     // SERVICES
     NzNotificationService,
     NzMessageService
 } from 'ng-zorro-antd';
-const ZORROMODULES = [
+export const ZORROMODULES = [
     // LoggerModule,
     // NzLocaleModule,
     NzButtonModule,
@@ -115,7 +114,19 @@ const ZORROMODULES = [
     // NzBackTopModule,
     // NzAffixModule,
     // NzAnchorModule,
-    NzAvatarModule
+    NzAvatarModule,
+    NzUploadModule
+];
+// endregion
+
+// region: third libs
+import { CountdownModule } from 'ngx-countdown';
+import { UEditorModule } from 'ngx-ueditor';
+import { NzSchemaFormModule } from 'nz-schema-form';
+const THIRDMODULES = [
+    CountdownModule,
+    UEditorModule,
+    NzSchemaFormModule
 ];
 // endregion
 
@@ -141,7 +152,8 @@ const HELPERS = [ ModalHelper, AbpMessageService, AbpNotifyService, MenuService,
         NzTreeModule,
         ...ZORROMODULES,
         NgZorroAntdExtraModule.forRoot(),
-        DelonComponentModule.forRoot()
+        DelonComponentModule.forRoot(),
+        ...THIRDMODULES
     ],
     declarations: [
         ...PIPES
@@ -156,7 +168,8 @@ const HELPERS = [ ModalHelper, AbpMessageService, AbpNotifyService, MenuService,
         ...ZORROMODULES,
         NgZorroAntdExtraModule,
         DelonComponentModule,
-        ...PIPES
+        ...PIPES,
+        ...THIRDMODULES
     ]
 })
 export class SharedModule {

@@ -15,8 +15,8 @@ const routes: Routes = [
         path: '',
         component: LayoutComponent,
         children: [
-            { path: '', redirectTo: 'dashboard/v1', pathMatch: 'full' },
-            { path: 'dashboard', redirectTo: 'dashboard/v1', pathMatch: 'full' },
+            // { path: '', redirectTo: 'dashboard/v1', pathMatch: 'full' },
+            // { path: 'dashboard', redirectTo: 'dashboard/v1', pathMatch: 'full' },
             { path: 'dashboard/v1', component: DashboardV1Component },
             { path: 'dashboard/analysis', component: DashboardAnalysisComponent },
             { path: 'dashboard/monitor', component: DashboardMonitorComponent },
@@ -29,18 +29,15 @@ const routes: Routes = [
             { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
             { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
             { path: 'maps', loadChildren: './maps/maps.module#MapsModule' },
-            { path: 'pages', loadChildren: './pages/pages.module#PagesModule' },
-            { path: 'logics', loadChildren: './logics/logics.module#LogicsModule' },
             { path: 'extras', loadChildren: './extras/extras.module#ExtrasModule' },
             { path: 'pro', loadChildren: './pro/pro.module#ProModule' }
         ]
-    },
-
-    { path: '**', redirectTo: 'dashboard' }
+    }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes, { useHash: environment.useHash })],
-    exports: [RouterModule]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule],
+    providers: []
   })
 export class RouteRoutingModule { }

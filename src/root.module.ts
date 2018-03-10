@@ -15,11 +15,25 @@ import { API_BASE_URL } from '@shared/service-proxies/service-proxies';
 import { RootComponent } from './root.component';
 import { AppPreBootstrap } from './AppPreBootstrap';
 
+// third
+import { UEditorModule } from 'ngx-ueditor';
+
+//fixed locale zh-CN
+import { registerLocaleData } from '@angular/common';
+import localeZhHans from '@angular/common/locales/zh-Hans';
+import localeZhHansExtra from '@angular/common/locales/extra/zh-Hans';
+function fixedLocale(){
+	localeZhHans[0] = 'zh-CN';
+	registerLocaleData(localeZhHans, localeZhHansExtra);
+}
 
 export function appInitializerFactory(injector: Injector) {
 	return () => {
 
 		abp.ui.setBusy();
+
+		fixedLocale();
+
 		return new Promise<boolean>((resolve, reject) => {
 			AppPreBootstrap.run(() => {
 				var appSessionService: AppSessionService = injector.get(AppSessionService);
@@ -53,7 +67,16 @@ export function getCurrentLanguage(): string {
 		SharedModule.forRoot(),
 		AbpModule,
 		ServiceProxyModule,
-		RootRoutingModule
+		RootRoutingModule,
+		UEditorModule.forRoot({
+            // **注：** 建议使用本地路径；以下为了减少 ng-alain 脚手架的包体大小引用了CDN，可能会有部分功能受影响
+            // 指定ueditor.js路径目录
+            path: '//apps.bdimg.com/libs/ueditor/1.4.3.1/',
+            // 默认全局配置项
+            options: {
+                themePath: '//apps.bdimg.com/libs/ueditor/1.4.3.1/themes/'
+            }
+        }),
 	],
 	declarations: [
 		RootComponent

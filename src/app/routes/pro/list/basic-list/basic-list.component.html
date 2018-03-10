@@ -73,7 +73,7 @@
                             </div>
                             <div class="text-right">
                                 开始时间
-                                <p>{{item.createdAt | _date}}</p>
+                                <p>{{item.createdAt | toDate}}</p>
                             </div>
                         </div>
                         <nz-progress [ngModel]="item.percent" [nzStatus]="item.status" [nzStrokeWidth]="6"></nz-progress>

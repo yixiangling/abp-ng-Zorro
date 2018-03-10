@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { SharedModule } from '@shared/shared.module';
 import { TablesRoutingModule } from './tables-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 import { RandomUserService } from './randomUser.service';
 import { TableFullComponent } from './full/full.component';
@@ -12,7 +13,7 @@ import { TableFullComponent } from './full/full.component';
 import { TableStandardComponent } from './standard/standard.component';
 
 @NgModule({
-    imports: [ SharedModule, TablesRoutingModule ],
+    imports: [ SharedModule, TablesRoutingModule, HttpClientModule ],
     providers: [ RandomUserService ],
     declarations: [
         TableStandardComponent,

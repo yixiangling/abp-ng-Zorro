@@ -139,7 +139,7 @@
                 <td nz-td>{{i.description}}</td>
                 <td nz-td class="text-center">{{i.callNo}} 万</td>
                 <td nz-td><nz-badge [nzStatus]="i.statusType" [nzText]="i.statusText"></nz-badge></td>
-                <td nz-td>{{i.updatedAt | _date}}</td>
+                <td nz-td>{{i.updatedAt | toDate}}</td>
                 <td nz-td>
                     <a (click)="msg.success('配置' + i.no)">配置</a>
                     <span nz-table-divider></span>

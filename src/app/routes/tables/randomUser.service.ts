@@ -21,7 +21,12 @@ export class RandomUserService {
             }),
             params: this.parseParams({ results: pageSize, page: PageIndex, _allow_anonymous: true })
         };
-        this.http.get(this.randomUserUrl, options_).pipe(catchError(this.handleError));
+        //
+        // const result = Observable.forkJoin(
+        //     this.http.get(this.randomUserUrl, options_)
+        // );
+        return this.http.get(this.randomUserUrl, options_);
+        //this.http.get(this.randomUserUrl, options_).pipe(catchError(this.handleError));
     }
 
     handleError(error: any) {

@@ -70,7 +70,10 @@ export class DashboardAnalysisComponent implements OnInit {
     }
 
     handlePieValueFormat(value: any) {
-        return this.yuan(value);
+        let digits: number = 2;
+        if (typeof value === 'number')
+            value = value.toFixed(digits);
+        return `&yen ${value}`;
     }
 
     _activeTab = 0;
@@ -103,10 +106,4 @@ export class DashboardAnalysisComponent implements OnInit {
         }
     }
 
-    //应该改成pipe，但又觉得没必要
-    yuan(value: any, digits: number = 2): string {
-        if (typeof value === 'number')
-            value = value.toFixed(digits);
-        return `&yen ${value}`;
-    }
 }

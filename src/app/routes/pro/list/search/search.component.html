@@ -86,7 +86,7 @@
                         <a href="{{item.href}}" target="_blank">{{item.owner}}</a>
                         <span class="px-sm">发布在</span>
                         <a href="{{item.href}}" target="_blank">{{item.href}}</a>
-                        <time class="pl-md text-grey" title="{{item.updatedAt}}">{{item.updatedAt | _date}}</time>
+                        <time class="pl-md text-grey" title="{{item.updatedAt}}">{{item.updatedAt | toDate}}</time>
                     </div>
                 </ng-template>
             </nz-list-item>
