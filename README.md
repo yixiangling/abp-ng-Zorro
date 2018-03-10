@@ -36,7 +36,7 @@ ABP core免费版的默认angular工程组件框架替换成 ng-Zorro，无其�
 - src/app/pages/* 从别处copy来的代码，暂时占位用，代码写法上还未修改成ng-Zorro规格，暂时未添加abp模板中的全部内容。
 
 # 其它
-准备引入ng-alain的示例代码，但ng-alain依赖delon，认证库，国际化等组件较多，只能先迁移delon的组件到ABP
+已引入大部分ng-alain的示例代码
 
 # delon 组件迁移信息
 从delon/abc迁移的组件存放在src/shared/components/*下，组件的使用方法参见[delon 文档](http://ng-alain.com/components/)。
@@ -65,7 +65,7 @@ ABP core免费版的默认angular工程组件框架替换成 ng-Zorro，无其�
 |	reuse-tab	|	_暂无计划_	|	angular我还不够熟练，暂不碰这个	|
 |	sidebar-nav	|	_不迁移_	|	交由各区域在layout层面去实现	|
 |	simple-table	|	_不迁移_	|	每个人对于simple的理解不同，暂不迁移	|
-|	standard-form-row	|	_不迁移_	|	表单排版交由各实现组件去完成	|
+|	standard-form-row	|	已迁移	|	用法一致	|
 |	tag-select	|	已迁移	|	用法一致	|
 |	trend	    |	已迁移	|	用法一致	|
 |	utils	    |	_不迁移_	|	与呈现相关的写pipe，与逻辑相关的写service，不迁移万能类	|
