@@ -2,5 +2,6 @@
 
 export const environment = {
     production: true,
-    hmr: false
+    hmr: false,
+    useHash: true
 };

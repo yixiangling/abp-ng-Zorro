@@ -128,7 +128,8 @@ import { ModalHelper } from './helpers/modal.helper';
 import { AbpMessageService } from './helpers/message.service';
 import { AbpNotifyService } from './helpers/notify.service';
 import { MenuService } from './layout/menu.service';
-const HELPERS = [ ModalHelper, AbpMessageService, AbpNotifyService, MenuService ];
+import { ColorsService } from './layout/colors.service'
+const HELPERS = [ ModalHelper, AbpMessageService, AbpNotifyService, MenuService, ColorsService ];
 
 @NgModule({
     imports: [

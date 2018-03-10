@@ -32,4 +32,5 @@ interface JQueryStatic {
 declare var G2: any;
 declare var DataSet: any;
 declare var Slider: any;
+declare var Cloud: any;
 declare var hljs: any;

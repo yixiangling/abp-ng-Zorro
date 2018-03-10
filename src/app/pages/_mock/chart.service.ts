@@ -1,5 +1,4 @@
 // tslint:disable
-
 import * as moment from "moment";
 
 // mock data
