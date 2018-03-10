@@ -8,7 +8,7 @@
     };
 
     static readonly localization = {
-        defaultLocalizationSourceName: 'Homemaking'
+        defaultLocalizationSourceName: 'TestTemplate'
     };
 
     static readonly authorization = {
