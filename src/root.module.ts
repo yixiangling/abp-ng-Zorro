@@ -27,6 +27,28 @@ function fixedLocale(){
 	registerLocaleData(localeZhHans, localeZhHansExtra);
 }
 
+//preloader
+function preloader() {
+    function remove() {
+		const body = document.querySelector('body');
+		const preloader = document.querySelector('.preloader');
+	
+		body.style.overflow = 'hidden';
+        // preloader value null when running --hmr
+        if (!preloader) return;
+        preloader.addEventListener('transitionend', function () {
+            preloader.className = 'preloader-hidden';
+        });
+
+        preloader.className += ' preloader-hidden-add preloader-hidden-add-active';
+    }
+	setTimeout(() => {
+		remove();
+		const body = document.querySelector('body');
+		body.style.overflow = '';
+	}, 100);
+};
+
 export function appInitializerFactory(injector: Injector) {
 	return () => {
 
@@ -40,10 +62,12 @@ export function appInitializerFactory(injector: Injector) {
 				appSessionService.init().then(
 					(result) => {
 						abp.ui.clearBusy();
+						preloader();
 						resolve(result);
 					},
 					(err) => {
 						abp.ui.clearBusy();
+						preloader();
 						reject(err);
 					}
 				);
