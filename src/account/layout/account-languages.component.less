@@ -1,11 +1,24 @@
-﻿.account-language-switch-list {
-    list-style: none;
-    margin: 0px;
-    padding: 10px;
+﻿@import '../../theme/styles/antd/themes/default.less';
 
-    > li {
-        display: inline;
-        margin: 0px;
-        padding: 0px;
-    }
+:host {
+	::ng-deep {
+
+        .account-language-switch-list {
+            text-align: center;
+            list-style: none;
+            margin: 0px;
+            padding: 10px;
+        
+            > li {
+                display: inline;
+                margin: 0px;
+                padding: 0px;
+
+                i{
+                    display: inline-block;
+                }
+            }
+        }
+
+	}
 }

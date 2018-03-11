@@ -6,8 +6,7 @@ import { AppComponentBase } from '@shared/app-component-base';
     templateUrl: './account.component.html',
     styleUrls: [
         './account.component.less'
-    ],
-    encapsulation: ViewEncapsulation.None
+    ]
 })
 export class AccountComponent extends AppComponentBase implements OnInit {
 
@@ -15,21 +14,6 @@ export class AccountComponent extends AppComponentBase implements OnInit {
 
     versionText: string;
     currentYear: number;
-
-    links = [
-        {
-            title: '帮助',
-            href: ''
-        },
-        {
-            title: '隐私',
-            href: ''
-        },
-        {
-            title: '条款',
-            href: ''
-        }
-    ];
     
     public constructor(
         injector: Injector,

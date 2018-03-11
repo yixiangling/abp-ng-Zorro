@@ -3,18 +3,29 @@
         <div class="head">
             <a [routerLink]="['/']">
                 <img class="logo" src="./assets/img/logo-color.svg">
-                <span class="title">ng-alain</span>
+                <span class="title">Abp</span>
             </a>
         </div>
         <p class="desc">武林中最有影响力的《葵花宝典》；欲练神功，挥刀自宫</p>
     </div>
+    
     <router-outlet></router-outlet>
-    <!-- <global-footer [links]="links">
-        <ng-template #copyright>
-            Copyright <nz-icon nzType="copyright"></nz-icon> {{currentYear}} TestTemplate. <b>Version </b> {{versionText}}
-        </ng-template>
-    </global-footer> -->
-    <div class="copyright">
-        Copyright <nz-icon nzType="copyright"></nz-icon> {{currentYear}} TestTemplate. <b>Version </b> {{versionText}}
+
+    <account-languages></account-languages>
+
+    <div class="global-footer">
+        <div class="links">
+                <a target="_black" href="https://aspnetboilerplate.com/">ABP</a>
+                <a target="_black" href="http://github.com/cipchk/ng-alain">ng-alain</a>
+                <a target="_black" href="https://github.com/NG-ZORRO/ng-zorro-antd">ng-zorro-antd</a>
+                <a target="_black" href="https://github.com/cipchk/delon">delon</a>
+        </div>
+        <div class="copyright">
+            Copyright
+            <nz-icon nzType="copyright"></nz-icon> {{currentYear}} TestTemplate.
+            <b>Version </b> {{versionText}}
+        </div>
     </div>
+    
+
 </div>
