@@ -15,8 +15,11 @@ import * as _ from 'lodash';
         </div>
         <ul nz-menu>
             <li nz-menu-item *ngFor="let language of languages"
-            [nzSelected]="language.name == currentLanguage.name"
-                (click)="changeLanguage(language.name)">{{language.displayName}}</li>
+                [nzSelected]="language.name == currentLanguage.name"
+                (click)="changeLanguage(language.name)">
+                <i class="anticon {{language.icon}}"></i>
+                <span>{{language.displayName}}</span>
+            </li>
         </ul>
     </nz-dropdown>
     `
