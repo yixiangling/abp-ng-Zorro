@@ -9,14 +9,22 @@
             <!-- Menu -->
             <li>
                 <div class="item" (click)="toggleCollapsedSideabar()">
-                    <!-- <i class="anticon anticon-menu-{{settings.layout.collapsed ? 'unfold' : 'fold'}}"></i> -->
+                    <i class="anticon anticon-menu-{{collapsed ? 'unfold' : 'fold'}}"></i>
                 </div>
             </li>
-
+            <!-- Github Page -->
+            <li>
+                <a class="item" href="//github.com/yixiangling/abp-ng-Zorro" target="_blank">
+                    <i class="anticon anticon-github"></i>
+                </a>
+            </li>
         </ul>
         <header-search class="header-search" [toggleChange]="searchToggleStatus"></header-search>
         <ul class="top-nav">
-            
+            <!-- Notify -->
+            <li>
+                <header-notify></header-notify>
+            </li>
             <!-- Task -->
             <li class="hidden-xs">
                 <header-task></header-task>

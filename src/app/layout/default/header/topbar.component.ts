@@ -8,7 +8,8 @@ import { AppComponentBase } from '@shared/app-component-base';
 })
 export class TopBarComponent extends AppComponentBase {
     searchToggleStatus: boolean;
-    
+    collapsed: boolean = true;
+
     constructor(
         injector: Injector
     ) {
@@ -17,6 +18,7 @@ export class TopBarComponent extends AppComponentBase {
 
     toggleCollapsedSideabar() {
         //this.settings.setLayout('collapsed', !this.settings.layout.collapsed);
+        this.collapsed = !this.collapsed;
     }
 
     searchToggleChange() {
