@@ -12,12 +12,14 @@ import { AdResultModule } from './result/result.module';
 import { AdTagSelectModule } from './tag-select/tag-select.module';
 import { AdTrendModule } from './trend/trend.module';
 import { AdStandardFormRowModule } from './standard-form-row/standard-form-row.module';
+// import { AdReuseTabModule } from './reuse-tab/reuse-tab.module';
 
 import { AdChartsModule } from './charts/charts.module';
 
 const MODULES = [
     AdProHeaderModule, AdAvatarListModule, AdCountDownModule, AdDescListModule, AdEllipsisModule, AdNoticeIconModule, AdNumberInfoModule, AdNumberToChineseModule,
     AdResultModule, AdTagSelectModule, AdTrendModule, AdStandardFormRowModule, 
+    // AdReuseTabModule, 
     AdChartsModule
 ];
 
@@ -35,6 +37,7 @@ const MODULES = [
         AdTagSelectModule.forRoot(),
         AdTrendModule.forRoot(),
         AdStandardFormRowModule.forRoot(),
+        // AdReuseTabModule.forRoot(),
 
         AdChartsModule.forRoot()
     ],

@@ -95,8 +95,6 @@ export class AppComponent extends AppComponentBase implements OnInit, AfterViewI
 				]),
 			]),
 		];
-		console.log('set menu to services');
-		console.log(this.menuService.menus);
 	}
 
 	ngOnInit(): void {

@@ -5,7 +5,6 @@ import { AbpModule } from '@abp/abp.module';
 import { RouterModule } from '@angular/router';
 
 import { NzTreeModule } from 'ng-tree-antd';
-// import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { NgZorroAntdExtraModule } from 'ng-zorro-antd-extra';
 
 import { AppSessionService } from './session/app-session.service';

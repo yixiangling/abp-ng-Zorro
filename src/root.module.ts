@@ -18,6 +18,8 @@ import { AppPreBootstrap } from './AppPreBootstrap';
 // third
 import { UEditorModule } from 'ngx-ueditor';
 
+import { AdReuseTabModule } from '@shared/layout/reuse-tab';
+
 //fixed locale zh-CN
 import { registerLocaleData } from '@angular/common';
 import localeZhHans from '@angular/common/locales/zh-Hans';
@@ -100,7 +102,8 @@ export function getCurrentLanguage(): string {
             options: {
                 themePath: '//apps.bdimg.com/libs/ueditor/1.4.3.1/themes/'
             }
-        }),
+		}),
+		AdReuseTabModule.forRoot()
 	],
 	declarations: [
 		RootComponent
