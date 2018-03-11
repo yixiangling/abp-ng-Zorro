@@ -1,4 +1,4 @@
-﻿<ul nz-menu [nzMode]="'inline'">
+﻿<ul nz-menu [nzMode]="'inline'" [nzInlineCollapsed]="isCollapsed">
     <ng-template ngFor let-menuItem [ngForOf]="menuItems" let-mainMenuItemIndex="index">
         <li *ngIf="showMenuItem(menuItem) && !menuItem.items" nz-menu-item routerLinkActive="ant-menu-item-selected">
             <a [routerLink]="[menuItem.route]">

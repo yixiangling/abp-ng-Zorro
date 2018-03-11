@@ -1,4 +1,4 @@
-﻿import { Component, Injector, ViewEncapsulation } from '@angular/core';
+﻿import { Component, Injector, OnInit, ViewEncapsulation } from '@angular/core';
 import { AppComponentBase } from '@shared/app-component-base';
 
 @Component({
@@ -6,9 +6,9 @@ import { AppComponentBase } from '@shared/app-component-base';
     selector: 'top-bar',
     encapsulation: ViewEncapsulation.None
 })
-export class TopBarComponent extends AppComponentBase {
+export class TopBarComponent extends AppComponentBase implements OnInit {
     searchToggleStatus: boolean;
-    collapsed: boolean = true;
+    isCollapsed:boolean = false;
 
     constructor(
         injector: Injector
@@ -16,9 +16,14 @@ export class TopBarComponent extends AppComponentBase {
         super(injector);
     }
 
+    ngOnInit(){
+        abp.event.on('abp.theme-setting.collapsed', collapsed => {
+			this.isCollapsed = collapsed;
+		});
+    }
+
     toggleCollapsedSideabar() {
-        //this.settings.setLayout('collapsed', !this.settings.layout.collapsed);
-        this.collapsed = !this.collapsed;
+        abp.event.trigger('abp.theme-setting.collapsed', !this.isCollapsed);
     }
 
     searchToggleChange() {
