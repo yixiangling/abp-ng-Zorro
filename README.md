@@ -46,6 +46,8 @@ ABP core免费版的默认angular工程组件框架替换成 ng-Zorro，无其�
 # 其它
 已引入大部分ng-alain的示例代码
 
+主题切换功能暂只支持顶部颜色切换，因ng-zorro-antd本身没有主题，所以左侧导航栏无法切换颜色，ng-alain的sidebar-nav组件没有进行迁移
+
 # delon 组件迁移信息
 从delon/abc迁移的组件存放在src/shared/components/*下，组件的使用方法参见[delon 文档](http://ng-alain.com/components/)。
 
@@ -84,7 +86,7 @@ ABP core免费版的默认angular工程组件框架替换成 ng-Zorro，无其�
 # 鸣谢
 [ABP](https://aspnetboilerplate.com/) ASP.NET Boilerplate是一个用最佳实践和流行技术开发现代WEB应用程序的新起点，它旨在成为一个通用的WEB应用程序框架和项目模板。
 
-[Ng-zorro-antd](https://github.com/NG-ZORRO/ng-zorro-antd) admin panel front-end framework.
+[ng-zorro-antd](https://github.com/NG-ZORRO/ng-zorro-antd) admin panel front-end framework.
 
 [ng-alain](http://github.com/cipchk/ng-alain) 基于 Ng-zorro-antd 的解决方案
 

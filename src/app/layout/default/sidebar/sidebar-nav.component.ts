@@ -27,7 +27,7 @@ export class SideBarNavComponent extends AppComponentBase implements OnInit {
     ngOnInit(){
         abp.event.on('abp.theme-setting.collapsed', collapsed => {
 			this.isCollapsed = collapsed;
-		});
+        });
     }
 
     showMenuItem(menuItem): boolean {
