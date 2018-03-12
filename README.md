@@ -3,13 +3,6 @@
 ### 后台框架：[ABP](https://aspnetboilerplate.com/)
 ### 前端框架：依赖组件库 [ng-Zorro](https://github.com/NG-ZORRO/ng-zorro-antd)
 
-## 演示地址
-
-[ABP&Ng-zorro-antd Demo](http://abp-zorro.woow.site/) 渣服务器，请轻撸！
-
-登录帐号密码为ABP默认帐号密码admin/123qwe
-
-angular文件较大，服务器带宽较小，需要多等待一下！！！
 
 # 改动说明
 ABP core免费版的默认angular工程组件框架替换成 ng-Zorro，无其他前端框架依赖，无ng-alain依赖。
