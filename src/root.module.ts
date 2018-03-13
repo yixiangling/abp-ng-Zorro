@@ -4,7 +4,10 @@ import { NgModule, Injector, APP_INITIALIZER, LOCALE_ID } from '@angular/core';
 
 import { AbpModule, ABP_HTTP_PROVIDER } from '@abp/abp.module';
 
+
 import { SharedModule } from '@shared/shared.module';
+import { DelonComponentModule } from '@shared/components';
+import { NgZorroAntdExtraModule } from 'ng-zorro-antd-extra';
 import { ServiceProxyModule } from '@shared/service-proxies/service-proxy.module';
 import { RootRoutingModule } from './root-routing.module';
 
@@ -15,10 +18,9 @@ import { API_BASE_URL } from '@shared/service-proxies/service-proxies';
 import { RootComponent } from './root.component';
 import { AppPreBootstrap } from './AppPreBootstrap';
 
+
 // third
 import { UEditorModule } from 'ngx-ueditor';
-
-import { AdReuseTabModule } from '@shared/layout/reuse-tab';
 
 //fixed locale zh-CN
 import { registerLocaleData } from '@angular/common';
@@ -91,9 +93,11 @@ export function getCurrentLanguage(): string {
 		BrowserModule,
 		BrowserAnimationsModule,
 		SharedModule.forRoot(),
+		DelonComponentModule.forRoot(),
 		AbpModule,
 		ServiceProxyModule,
 		RootRoutingModule,
+		NgZorroAntdExtraModule.forRoot(),
 		UEditorModule.forRoot({
             // **注：** 建议使用本地路径；以下为了减少 ng-alain 脚手架的包体大小引用了CDN，可能会有部分功能受影响
             // 指定ueditor.js路径目录
@@ -103,7 +107,7 @@ export function getCurrentLanguage(): string {
                 themePath: '//apps.bdimg.com/libs/ueditor/1.4.3.1/themes/'
             }
 		}),
-		AdReuseTabModule.forRoot()
+		//AdReuseTabModule.forRoot()
 	],
 	declarations: [
 		RootComponent

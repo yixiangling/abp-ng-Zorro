@@ -10,7 +10,6 @@ import { AbpModule } from '@abp/abp.module';
 
 import { ServiceProxyModule } from '@shared/service-proxies/service-proxy.module';
 import { SharedModule } from '@shared/shared.module';
-import { AdReuseTabModule } from '@shared/layout/reuse-tab';
 
 import { LayoutModule } from './layout/layout.module';
 
@@ -32,8 +31,6 @@ import { DefaultPageComponent } from '@app/default/default-page.component';
         ServiceProxyModule,
         SharedModule,
         LayoutModule,
-
-        AdReuseTabModule
     ],
     providers: [
     ]

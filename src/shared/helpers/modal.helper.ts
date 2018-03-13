@@ -45,6 +45,7 @@ export class ModalHelper {
                 content: comp,
                 width: width ? width : undefined,
                 footer: false,
+                maskClosable: false,
                 componentParams: params
             }, options || {}))
             .filter((res: any) => {

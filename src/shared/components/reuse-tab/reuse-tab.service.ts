@@ -135,10 +135,7 @@ export class ReuseTabService implements OnDestroy {
 
     // endregion
 
-    // hashId: number;
     constructor(private injector: Injector, @Optional() private menuService: MenuService) { 
-        // this.hashId = Math.random();
-        // console.log('constructor reuse-tab %o', this.hashId);
     }
 
     /** @private */
@@ -245,8 +242,6 @@ export class ReuseTabService implements OnDestroy {
         }
 
         this._cachedChange.next({ active: 'add', item });
-
-        // console.log('store output ' + this.hashId + ' %o', this._cached);
     }
 
     /**

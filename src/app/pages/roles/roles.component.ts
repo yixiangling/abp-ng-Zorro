@@ -1,34 +1,81 @@
-import { Component, Injector, OnInit } from '@angular/core';
-import { NzMessageService } from 'ng-zorro-antd';
-import { getFakeList } from '../_mock/api.service';
+import { Component, Injector, ViewChild } from '@angular/core';
+import { ModalHelper } from '@shared/helpers/modal.helper';
+import { PagedListingComponentBase, PagedRequestDto } from "shared/paged-listing-component-base";
+import { RoleServiceProxy, RoleDto, PagedResultDtoOfRoleDto } from "shared/service-proxies/service-proxies";
 
-import { AppComponentBase } from '@shared/app-component-base';
+import { CreateRoleComponent } from "./create-role/create-role.component";
+
+import { NzModalService } from 'ng-zorro-antd';
 
 @Component({
     selector: 'pro-page-roles',
     templateUrl: './roles.component.html',
     styleUrls: [ './roles.component.less' ]
 })
-export class RolesComponent extends AppComponentBase implements OnInit {
-    q: any = {
-        status: 'all'
-    };
-    loading = false;
-    data: any[] = [];
+export class RolesComponent extends PagedListingComponentBase<RoleDto> {
+	
+	dataItems: RoleDto[] = [];
 
-    constructor(injector: Injector, public msg: NzMessageService) {
-        super(injector);
-    }
+	constructor(
+		private injector:Injector,
+		private rolesService: RoleServiceProxy,
+		private modalHelper: ModalHelper,
+		private modalService: NzModalService
+	) {
+		super(injector);
+	}
+    
+	list(request: PagedRequestDto, pageNumber: number, finishedCallback: Function): void {
+		this.rolesService.getAll(request.skipCount, request.maxResultCount)
+			.finally( ()=> {
+				finishedCallback();
+			})
+            .subscribe((result: PagedResultDtoOfRoleDto)=>{
+				this.dataItems = result.items;
+				this.showPaging(result, pageNumber);
+		});
+	}
 
-    ngOnInit() {
-        this.getData();
-    }
+	delete(role: RoleDto): void {
+		this.message.confirm(
+			"Remove Users from Role and delete Role '"+ role.displayName +"'?",
+			"Permanently delete this Role",
+			(result:boolean) =>{
+				if(result)
+				{
+					this.rolesService.delete(role.id)
+						.finally(() => {
+							abp.notify.info("Deleted Role: " + role.displayName );
+							this.refresh();
+						})
+						.subscribe(() => { });
+				}
+			}
+		);
+	}
 
-    getData() {
-        this.loading = true;
-        setTimeout(() => {
-            this.data = getFakeList(5);
-            this.loading = false;
-        }, 1000);
-    }
+	// Show Modals
+	create(): void {
+		// this.createRoleModal.show();
+
+		this.modalHelper.open(CreateRoleComponent, { }).subscribe(res => this.refresh());
+		// const subscription = this.modalService.open({
+		// 	content        : CreateRoleComponent,
+		// 	onOk() {
+		// 	},
+		// 	onCancel() {
+		// 	  console.log('Click cancel');
+		// 	},
+		// 	footer         : false,
+		// 	componentParams: {
+		// 	  name: '测试渲染Component'
+		// 	}
+		//   }).subscribe(result => {
+		// 	console.log(result);
+		//   })
+	}
+
+	edit(role:RoleDto): void {
+		// this.editRoleModal.show(role.id);
+	}
 }

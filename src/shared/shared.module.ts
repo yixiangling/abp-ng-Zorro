@@ -12,7 +12,6 @@ import { AppUrlService } from './nav/app-url.service';
 import { AppAuthService } from './auth/app-auth.service';
 import { AppRouteGuard } from './auth/auth-route-guard';
 
-import { DelonComponentModule } from './components/delon-component.module';
 
 // region: zorro modules
 import {
@@ -129,6 +128,7 @@ const THIRDMODULES = [
 ];
 // endregion
 
+import { DelonComponentModule } from './components';
 
 import { MomentDatePipe } from './pipes/moment-date.pipe';
 import { YNPipe } from './pipes/yn.pipe';
@@ -139,7 +139,8 @@ import { AbpMessageService } from './helpers/message.service';
 import { AbpNotifyService } from './helpers/notify.service';
 import { MenuService } from './layout/menu.service';
 import { ColorsService } from './layout/colors.service'
-const HELPERS = [ ModalHelper, AbpMessageService, AbpNotifyService, MenuService, ColorsService ];
+const HELPERS = [ AbpMessageService, AbpNotifyService, MenuService, ColorsService ];
+
 
 @NgModule({
     imports: [
@@ -150,14 +151,16 @@ const HELPERS = [ ModalHelper, AbpMessageService, AbpNotifyService, MenuService,
         ReactiveFormsModule,
         NzTreeModule,
         ...ZORROMODULES,
-        NgZorroAntdExtraModule.forRoot(),
-        DelonComponentModule.forRoot(),
+        NgZorroAntdExtraModule,
+        DelonComponentModule,
         ...THIRDMODULES
     ],
     declarations: [
         ...PIPES
     ],
-    providers: [  ],
+    providers: [  
+        ModalHelper
+    ],
     exports: [
         CommonModule,
         FormsModule,

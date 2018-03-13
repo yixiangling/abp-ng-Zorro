@@ -3,6 +3,7 @@ import { SharedModule } from '@shared/shared.module';
 import {CommonModule} from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LayoutComponent } from './default/layout.component';
+// import { DelonComponentModule } from '@shared/components';
 
 import { TopBarComponent } from './default/header/topbar.component';
 import { SideBarUserAreaComponent } from './default/sidebar/sidebar-user-area.component';

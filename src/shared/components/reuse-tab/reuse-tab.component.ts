@@ -73,7 +73,6 @@ export class ReuseTabComponent implements OnInit, OnChanges, OnDestroy {
 
     private gen(url?: string) {
         if (!url) url = this.srv.getUrl(this.route.snapshot);
-        // console.log('reuse-tab component server id %o', this.srv.hashId);
         const ls = [...this.srv.items].map((item: ReuseTabCached, index: number) => {
             return {
                 url: item.url,
