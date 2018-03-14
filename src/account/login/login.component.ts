@@ -1,6 +1,6 @@
 ﻿import { Component, Injector, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { AppComponentBase } from '@shared/app-component-base';
+import { AppComponentBase } from '@shared/component-base';
 import { LoginService } from './login.service';
 import { accountModuleAnimation } from '@shared/animations/routerTransition';
 import { AbpSessionService } from '@abp/session/abp-session.service';

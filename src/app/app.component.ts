@@ -1,6 +1,6 @@
 ﻿import { Component, ViewContainerRef, Injector, OnInit, AfterViewInit } from '@angular/core';
 import { AppConsts } from '@shared/AppConsts';
-import { AppComponentBase } from '@shared/app-component-base';
+import { AppComponentBase } from '@shared/component-base';
 
 import { MenuService } from '@shared/layout/menu.service';
 import { MenuItem } from '@shared/layout/menu-item';

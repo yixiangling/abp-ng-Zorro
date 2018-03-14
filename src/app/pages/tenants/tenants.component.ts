@@ -2,7 +2,7 @@ import { Component, Injector, OnInit } from '@angular/core';
 import { NzMessageService } from 'ng-zorro-antd';
 import { getRule, saveRule, removeRule } from '../_mock/rule.service';
 
-import { AppComponentBase } from '@shared/app-component-base';
+import { AppComponentBase } from '@shared/component-base';
 
 @Component({
     templateUrl: './tenants.component.html'

@@ -1,5 +1,5 @@
 ﻿import { Component, OnInit, Injector, ViewEncapsulation } from '@angular/core';
-import { AppComponentBase } from '@shared/app-component-base';
+import { AppComponentBase } from '@shared/component-base';
 import { AppAuthService } from '@shared/auth/app-auth.service';
 
 import { NzMessageService } from 'ng-zorro-antd';

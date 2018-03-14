@@ -1,7 +1,7 @@
 import { NzMessageService } from 'ng-zorro-antd';
 import { Component, Injector } from '@angular/core';
 
-import { AppComponentBase } from '@shared/app-component-base';
+import { AppComponentBase } from '@shared/component-base';
 
 @Component({
     selector: 'app-page-about',

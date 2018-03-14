@@ -3,7 +3,7 @@ import { NzMessageService } from 'ng-zorro-antd';
 import { getRule, saveRule, removeRule } from '../_mock/rule.service';
 import { UserServiceProxy, IUserDto, UserDto, CreateUserDto, RoleDto, PagedResultDtoOfUserDto } from '@shared/service-proxies/service-proxies';
 
-import { AppComponentBase } from '@shared/app-component-base';
+import { AppComponentBase } from '@shared/component-base';
 import { CreateUserComponent } from "./create-user/create-user.component";
 import { EditUserComponent } from "./edit-user/edit-user.component";
 

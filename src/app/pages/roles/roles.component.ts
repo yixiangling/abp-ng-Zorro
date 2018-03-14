@@ -1,6 +1,6 @@
 import { Component, Injector, ViewChild } from '@angular/core';
 import { ModalHelper } from '@shared/helpers/modal.helper';
-import { PagedListingComponentBase, PagedRequestDto } from "shared/paged-listing-component-base";
+import { PagedListingComponentBase, PagedRequestDto } from "shared/component-base";
 import { RoleServiceProxy, RoleDto, PagedResultDtoOfRoleDto } from "shared/service-proxies/service-proxies";
 
 import { CreateRoleComponent } from "./create-role/create-role.component";

@@ -1,7 +1,7 @@
 import { Injector, ElementRef } from '@angular/core';
 import { AppConsts } from '@shared/AppConsts';
 import { NzModalSubject } from 'ng-zorro-antd';
-import { AppComponentBase } from '@shared/app-component-base';
+import { AppComponentBase } from './app-component-base';
 
 export abstract class ModalComponentBase extends AppComponentBase {
 
@@ -23,3 +23,27 @@ export abstract class ModalComponentBase extends AppComponentBase {
 	}
 
 }
+
+// export namespace ModalSubjectEvent{
+// 	export interface onShow {
+// 		onShow(): void;
+// 	}
+// 	export interface onShown {
+// 		onShown(): void;
+// 	}
+// 	export interface onHide {
+// 		onHide(): void;
+// 	}
+// 	export interface onHidden {
+// 		onHidden(): void;
+// 	}
+// 	export interface onOk {
+// 		onOk(): void;
+// 	}
+// 	export interface onCancel {
+// 		onCancel(): void;
+// 	}
+// 	export interface onDestroy {
+// 		onDestroy(): void;
+// 	}
+// }

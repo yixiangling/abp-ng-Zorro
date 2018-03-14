@@ -1,7 +1,7 @@
 import { Component, Injector, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { SettingService } from '@abp/settings/setting.service';
-import { AppComponentBase } from '@shared/app-component-base';
+import { AppComponentBase } from '@shared/component-base';
 
 type ThemeType = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J';
 

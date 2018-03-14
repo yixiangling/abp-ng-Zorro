@@ -1,5 +1,5 @@
 ﻿import { Component, Injector, OnInit, ViewEncapsulation } from '@angular/core';
-import { AppComponentBase } from '@shared/app-component-base';
+import { AppComponentBase } from '@shared/component-base';
 
 @Component({
     templateUrl: './topbar.component.html',

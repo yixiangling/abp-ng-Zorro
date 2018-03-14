@@ -1,7 +1,7 @@
 ﻿import { Component, Injector, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AccountServiceProxy, RegisterInput, RegisterOutput } from '@shared/service-proxies/service-proxies'
-import { AppComponentBase } from '@shared/app-component-base';
+import { AppComponentBase } from '@shared/component-base';
 import { LoginService } from '../login/login.service';
 import { accountModuleAnimation } from '@shared/animations/routerTransition';
 
