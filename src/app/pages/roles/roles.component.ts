@@ -58,7 +58,7 @@ export class RolesComponent extends PagedListingComponentBase<RoleDto> {
 	create(): void {
 		// this.createRoleModal.show();
 
-		this.modalHelper.open(CreateRoleComponent, { }).subscribe(res => this.refresh());
+		this.modalHelper.open(CreateRoleComponent, { testprop: '123123123'}).subscribe(res => this.refresh());
 	}
 
 	edit(role:RoleDto): void {

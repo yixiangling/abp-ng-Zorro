@@ -4,9 +4,7 @@ import { NzModalSubject } from 'ng-zorro-antd';
 import { AppComponentBase } from './app-component-base';
 
 export abstract class ModalComponentBase extends AppComponentBase {
-
-	readonly eventTypes = ['onShow', 'onShown', 'onHide', 'onHidden','onOk', 'onCancel', 'onDestroy'];
-
+	modalVisible: boolean = false;
 	subject: NzModalSubject;
 
 	constructor(injector: Injector) {
@@ -14,36 +12,39 @@ export abstract class ModalComponentBase extends AppComponentBase {
 
 		this.subject = injector.get(NzModalSubject);
 
-		this.eventTypes.forEach(name => {
-			if(typeof this[name] === "function")
-			{
+		const eventTypes = ['onShow', 'onShown', 'onHide', 'onHidden', 'onOk', 'onCancel', 'onDestroy'];
+		eventTypes.forEach(name => {
+			if (typeof this[name] === "function") {
 				this.subject.on(name, this[name]);
 			}
 		});
+
+		this.subject.on('onShow', ()=> this.modalVisible=true);
+		this.subject.on('onHide', ()=> this.modalVisible=false);
 	}
 
 }
 
-// export namespace ModalSubjectEvent{
-// 	export interface onShow {
-// 		onShow(): void;
-// 	}
-// 	export interface onShown {
-// 		onShown(): void;
-// 	}
-// 	export interface onHide {
-// 		onHide(): void;
-// 	}
-// 	export interface onHidden {
-// 		onHidden(): void;
-// 	}
-// 	export interface onOk {
-// 		onOk(): void;
-// 	}
-// 	export interface onCancel {
-// 		onCancel(): void;
-// 	}
-// 	export interface onDestroy {
-// 		onDestroy(): void;
-// 	}
-// }
+export namespace ModalSubjectEvent {
+	export interface OnShow {
+		onShow(): void;
+	}
+	export interface OnShown {
+		onShown(): void;
+	}
+	export interface OnHide {
+		onHide(): void;
+	}
+	export interface OnHidden {
+		onHidden(): void;
+	}
+	export interface OnOk {
+		onOk(): void;
+	}
+	export interface OnCancel {
+		onCancel(): void;
+	}
+	export interface OnDestroy {
+		onDestroy(): void;
+	}
+}

@@ -2,15 +2,14 @@ import { Component, Injector, Input, OnInit } from '@angular/core';
 import { NzModalSubject } from 'ng-zorro-antd';
 
 import { RoleServiceProxy, CreateRoleDto, ListResultDtoOfPermissionDto } from '@shared/service-proxies/service-proxies';
-import { ModalComponentBase } from '@shared/component-base';
+import { ModalComponentBase, ModalSubjectEvent } from '@shared/component-base';
 
 @Component({
 	selector: 'create-role-modal',
 	templateUrl: './create-role.component.html',
 	styles: []
 })
-export class CreateRoleComponent extends ModalComponentBase implements OnInit {
-	active: boolean = false;
+export class CreateRoleComponent extends ModalComponentBase implements OnInit, ModalSubjectEvent.OnShow {
 	saving: boolean = false;
 
 	permissions: ListResultDtoOfPermissionDto = null;
