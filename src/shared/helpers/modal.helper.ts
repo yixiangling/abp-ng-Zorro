@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { NzModalService } from 'ng-zorro-antd';
+import { NzModalService, NzModalSubject } from 'ng-zorro-antd';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/filter';
+import { filter, tap } from 'rxjs/operators';
 
 /**
  * 对话框辅助类
@@ -9,7 +9,19 @@ import 'rxjs/add/operator/filter';
 @Injectable()
 export class ModalHelper {
 
+    private queues: NzModalSubject[] = [];
+    private zIndex = 500;
+
     constructor(private modalSrv: NzModalService) { }
+
+    /**
+     * 移除当前所有对话框
+     */
+    removeAll() {
+        this.queues.forEach((item: NzModalSubject) => {
+            item.destroy();
+        });
+    }
 
     /**
      * 打开对话框，默认会过滤一些事件的回调，因此更容易处理回调：
@@ -39,23 +51,27 @@ export class ModalHelper {
                 cls = `modal-${size}`;
             }
         }
-        return this.modalSrv
-            .open(Object.assign({
-                wrapClassName: cls,
-                content: comp,
-                width: width ? width : undefined,
-                footer: false,
-                maskClosable: false,
-                componentParams: params
-            }, options || {}))
-            .filter((res: any) => {
+        const subject = this.modalSrv.open(Object.assign({
+            wrapClassName: cls,
+            content: comp,
+            width: width ? width : undefined,
+            footer: false,
+            componentParams: params,
+            zIndex: ++this.zIndex
+        }, options || {}));
+
+        this.queues.push(subject);
+
+        return subject.pipe(filter((res: any) => {
                 let findIdx = -1;
                 if (typeof res === 'string') {
                     const resStr = res as string;
                     findIdx = ['onShow', 'onShown', 'onHide', 'onHidden', 'onCancel', 'onDestroy'].findIndex(w => resStr.startsWith(w));
                 }
                 return findIdx === -1;
-            });
+            }), tap(() => {
+                this.queues.pop();
+            }));
     }
 
     /**

@@ -2,14 +2,14 @@ import { Component, Injector, Input, OnInit } from '@angular/core';
 import { NzModalSubject } from 'ng-zorro-antd';
 
 import { RoleServiceProxy, CreateRoleDto, ListResultDtoOfPermissionDto } from '@shared/service-proxies/service-proxies';
-import { AppComponentBase } from '@shared/app-component-base';
+import { ModalComponentBase } from '@shared/modal-component-base';
 
 @Component({
 	selector: 'create-role-modal',
 	templateUrl: './create-role.component.html',
 	styles: []
 })
-export class CreateRoleComponent extends AppComponentBase implements OnInit {
+export class CreateRoleComponent extends ModalComponentBase implements OnInit {
 	active: boolean = false;
 	saving: boolean = false;
 
@@ -18,19 +18,41 @@ export class CreateRoleComponent extends AppComponentBase implements OnInit {
 
 	constructor(
 		injector: Injector,
-		private _roleService: RoleServiceProxy,
-		private subject: NzModalSubject
+		private _roleService: RoleServiceProxy
 	) {
 		super(injector);
 
-		this.subject.on('onDestory', () => {
-			console.log('destroy');
-		});
-		this.subject.on('onShow', () => {
-			this.role = new CreateRoleDto();
-			this.role.init({ isStatic: false });
-		});
+		// this.subject.on('onDestory', () => {
+		// 	console.log('destroy');
+		// });
+		// this.subject.on('onShow', () => {
+		// 	this.role = new CreateRoleDto();
+		// 	this.role.init({ isStatic: false });
+		// });
 	}
+
+	onShow(){
+		console.log('onShow')
+	}
+	onShown(){
+		console.log('onShown')
+	}
+	onHide(){
+		console.log('onHide')
+	}
+	onHidden(){
+		console.log('onHidden')
+	}
+	onOk(){
+		console.log('onOk')
+	}
+	onCancel(){
+		console.log('onCancel')
+	}
+	onDestroy(){
+		console.log('onDestroy')
+	}
+	
 
 	ngOnInit(): void {
 		this._roleService.getAllPermissions()
