@@ -57,7 +57,8 @@ export class ModalHelper {
             width: width ? width : undefined,
             footer: false,
             componentParams: params,
-            zIndex: ++this.zIndex
+            zIndex: ++this.zIndex,
+            maskClosable: false,
         }, options || {}));
 
         this.queues.push(subject);

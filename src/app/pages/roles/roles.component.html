@@ -1,10 +1,22 @@
 <pro-header [title]="l('Roles')"></pro-header>
 <nz-card [nzBordered]="false">
-    <div class="mb-md">
-        <button nz-button (click)="create()" [nzType]="'primary'" [nzSize]="'large'">
-            <i class="anticon anticon-plus"></i><span>新建</span>
-        </button>
-    </div>
+    <form nz-form (ngSubmit)="refresh()" [nzLayout]="'inline'">
+        <div nz-row [nzGutter]="24">
+            <div nz-col [nzSpan]="8" class="mb-md">
+            </div>
+            <div nz-col [nzSpan]="8" class="mb-md">
+            </div>
+
+            <div nz-col [nzSpan]="8" class="mb-md" [class.text-right]="'true'">
+                <!-- <button nz-button type="submit" [nzType]="'primary'" [nzLoading]="loading" [nzSize]="'large'">查询</button> -->
+                <!-- <button nz-button type="reset" (click)="refreshData()" [nzSize]="'large'" class="mx-sm">重置</button> -->
+                <button nz-button (click)="create()" [nzType]="'primary'" [nzSize]="'large'">
+                    <i class="anticon anticon-plus"></i>
+                    <span>{{l('Create')}}</span>
+                </button>
+            </div>
+        </div>
+    </form>
     <nz-table #nzTable [nzDataSource]="dataItems" [nzTotal]="totalItems" [(nzPageIndex)]="pageNumber" [(nzPageSize)]="pageSize" [nzLoading]="isTableLoading"
         [nzShowSizeChanger]="true" (nzPageIndexChange)="refresh()" (nzPageSizeChange)="refresh()">
         <thead nz-thead>
@@ -16,9 +28,6 @@
                     <span>{{l('DisplayName')}}</span>
                 </th>
                 <th nz-th>
-                    <span>{{l('EmailAddress')}}</span>
-                </th>
-                <th nz-th>
                     <span>{{l('Actions')}}</span>
                 </th>
             </tr>
@@ -27,7 +36,6 @@
             <tr nz-tbody-tr *ngFor="let item of nzTable.data">
                 <td nz-td>{{item.name}}</td>
                 <td nz-td>{{item.displayName}}</td>
-                <td nz-td>{{item.emailAddress}}</td>
                 <td nz-td>
                     <a (click)="edit(item)">{{l('Edit')}}</a>
                     <span nz-table-divider></span>

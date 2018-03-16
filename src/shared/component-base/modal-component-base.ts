@@ -14,13 +14,33 @@ export abstract class ModalComponentBase extends AppComponentBase {
 
 		const eventTypes = ['onShow', 'onShown', 'onHide', 'onHidden', 'onOk', 'onCancel', 'onDestroy'];
 		eventTypes.forEach(name => {
-			if (typeof this[name] === "function") {
-				this.subject.on(name, this[name]);
+			if (this[name] && typeof this[name] === "function") {
+				this.subject.on(name, () => { this[name]() });
 			}
 		});
 
-		this.subject.on('onShow', ()=> this.modalVisible=true);
-		this.subject.on('onHide', ()=> this.modalVisible=false);
+		this.subject.on('onShow', () => this.modalVisible = true);
+		this.subject.on('onHide', () => this.modalVisible = false);
+	}
+
+	success(result?: any){
+		this.modalVisible = false;
+		if(result)
+		{
+			this.subject.next(result);
+			this.subject.destroy('onCancel');
+		}
+		else
+		{
+			this.subject.destroy('onOk');
+		}
+	}
+
+	close($event?: MouseEvent): void {
+		if($event) $event.preventDefault();
+
+		this.modalVisible = false;
+		this.subject.destroy('onCancel');
 	}
 
 }

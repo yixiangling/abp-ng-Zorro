@@ -1,5 +1,5 @@
 <form *ngIf="modalVisible" nz-form [formGroup]="validateForm" (ngSubmit)="save()">
-	<nz-modal [nzVisible]="modalVisible" [nzTitle]="l('CreateNewRole')" [nzConfirmLoading]="loading" [nzContent]="modalContent"
+	<nz-modal [nzVisible]="modalVisible" [nzTitle]="l('EditRole')" [nzConfirmLoading]="loading" [nzContent]="modalContent"
 	 [nzFooter]="modalFooter" (nzOnCancel)="close($event)">
 		<ng-template #modalContent>
 			<fieldset>
