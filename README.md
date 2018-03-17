@@ -26,6 +26,7 @@ ABP core免费版的默认angular工程组件框架替换成 ng-Zorro，无其�
 3. 移除了SignalR相关代码（因为我不用，如果需要请自行添加相关代码）
 4. 增加MenuService用于管理应用程序菜单数据（此服务功能与delon/theme的MenuService实现有所不同）
 5. 从delon迁移的组件存放在 src/shared/components下
+6. **新增示范代码（src/app/pages/roles/*）目前只有这里的页面组件代码是符合ng-zorro规则，同时符合abp需要的代码。**
 
 
 # 使用方法
@@ -67,7 +68,7 @@ ABP core免费版的默认angular工程组件框架替换成 ng-Zorro，无其�
 |	result	    |	已迁移	|	用法一致	|
 |	reuse-tab	|	已迁移	|	无Menu相关内容(无menu和mode)，其余与delon相同	|
 |	sidebar-nav	|	_不迁移_	|	交由各区域在layout层面去实现	|
-|	simple-table	|	_不迁移_	|	每个人对于simple的理解不同，暂不迁移	|
+|	simple-table	|	_不迁移_	|	每个人对于simple的理解和需要不同，暂不迁移	|
 |	standard-form-row	|	已迁移	|	用法一致	|
 |	tag-select	|	已迁移	|	用法一致	|
 |	trend	    |	已迁移	|	用法一致	|
@@ -85,4 +86,4 @@ ABP core免费版的默认angular工程组件框架替换成 ng-Zorro，无其�
 
 [delon](https://github.com/cipchk/delon) cipchk/delon是ng-alain的业务组件库
 
-[DonaldTdz/photostory](https://github.com/DonaldTdz/photostory) 部分代码来源
+[DonaldTdz/photostory](https://github.com/DonaldTdz/photostory) （src/app/pages/*）部分代码来源
