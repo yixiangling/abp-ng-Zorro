@@ -1,12 +1,13 @@
 # 项目说明
-这是一个用来替换ABP 免费模板中前端部分的项目，因ABP免费模板的前端框架实在是太难用了。
+这是一个用来替换ABP 免费模板中前端的项目。
+
+ABP core免费版的默认angular工程使用到的UI组件替换成 ng-Zorro，无其他前端框架依赖，无ng-alain依赖。
+
 ### 后台框架：[ABP](https://aspnetboilerplate.com/)
 ### 前端框架：依赖组件库 [ng-Zorro](https://github.com/NG-ZORRO/ng-zorro-antd)
 
 
 # 改动说明
-ABP core免费版的默认angular工程组件框架替换成 ng-Zorro，无其他前端框架依赖，无ng-alain依赖。
-
 由于有代码迁移，因此大量复制了[delon](https://github.com/cipchk/delon)的代码，在此向delon作者 [cipchk](https://github.com/cipchk) 赠送小红花 :hibiscus: 表示感谢！
 
 ## 改动原则
@@ -26,7 +27,7 @@ ABP core免费版的默认angular工程组件框架替换成 ng-Zorro，无其�
 3. 移除了SignalR相关代码（因为我不用，如果需要请自行添加相关代码）
 4. 增加MenuService用于管理应用程序菜单数据（此服务功能与delon/theme的MenuService实现有所不同）
 5. 从delon迁移的组件存放在 src/shared/components下
-6. **新增示范代码（src/app/pages/roles/*）目前只有这里的页面组件代码是符合ng-zorro规则，同时符合abp需要的代码。**
+6. **新增示范代码（src/app/pages/roles|users/*）目前只有这里的组件代码是符合ng-zorro规则，同时符合abp需要的代码。**
 
 
 # 使用方法
@@ -86,4 +87,4 @@ ABP core免费版的默认angular工程组件框架替换成 ng-Zorro，无其�
 
 [delon](https://github.com/cipchk/delon) cipchk/delon是ng-alain的业务组件库
 
-[DonaldTdz/photostory](https://github.com/DonaldTdz/photostory) （src/app/pages/*）部分代码来源
+~~[DonaldTdz/photostory](https://github.com/DonaldTdz/photostory) （src/app/pages/*）部分代码来源~~
