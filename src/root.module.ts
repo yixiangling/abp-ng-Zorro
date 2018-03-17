@@ -18,8 +18,6 @@ import { API_BASE_URL } from '@shared/service-proxies/service-proxies';
 import { RootComponent } from './root.component';
 import { AppPreBootstrap } from './AppPreBootstrap';
 
-// import { AbpMessageService } from './shared/helpers/message.service';
-// import { AbpNotifyService } from './shared/helpers/notify.service';
 import { LocalizationService } from '@abp';
 
 //ng-zorro 国际化（ng-zorro0.7版本正式发布后此处会更新）
@@ -86,19 +84,10 @@ function setNgZorroLocale(injector: Injector): void {
 	nzLocalService.setLocale(lang);
 }
 
-// function replaceAbpModule(injector: Injector): void {
-// 	Abp.message = injector.get(AbpMessageService);
-// 	Abp.notify = injector.get(AbpNotifyService);
-// }
-
 export function appInitializerFactory(injector: Injector) {
 	return () => {
 
-		// abp.ui.setBusy();
-
 		fixedLocale();
-		
-		// replaceAbpModule(injector);
 
 		return new Promise<boolean>((resolve, reject) => {
 			AppPreBootstrap.run(injector, () => {
@@ -106,13 +95,10 @@ export function appInitializerFactory(injector: Injector) {
 				appSessionService.init().then(
 					(result) => {
 						setNgZorroLocale(injector);
-
-						// abp.ui.clearBusy();
 						preloader();
 						resolve(result);
 					},
 					(err) => {
-						// abp.ui.clearBusy();
 						preloader();
 						reject(err);
 					}
@@ -151,8 +137,7 @@ export function getCurrentLanguage(): string {
             options: {
                 themePath: '//apps.bdimg.com/libs/ueditor/1.4.3.1/themes/'
             }
-		}),
-		//AdReuseTabModule.forRoot()
+		})
 	],
 	declarations: [
 		RootComponent

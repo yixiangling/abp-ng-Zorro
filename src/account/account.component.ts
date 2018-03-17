@@ -10,7 +10,7 @@ import { Abp } from '@abp';
         './account.component.less'
     ]
 })
-export class AccountComponent extends AppComponentBase implements OnInit {
+export class AccountComponent extends AppComponentBase {
 
     private viewContainerRef: ViewContainerRef;
 
@@ -29,9 +29,5 @@ export class AccountComponent extends AppComponentBase implements OnInit {
 
     showTenantChange(): boolean {
         return Abp.multiTenancy.isEnabled;
-    }
-
-    ngOnInit(): void {
-        $('body').attr('class', 'login-page');
     }
 }

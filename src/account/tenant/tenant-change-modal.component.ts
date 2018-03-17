@@ -33,10 +33,6 @@ export class TenantChangeModalComponent extends AppComponentBase {
         // this.modal.show();
     }
 
-    onShown(): void {
-        $(this.tenancyNameInput.nativeElement).focus().select();
-    }
-
     save(): void {
 
         if (!this.tenancyName) {
