@@ -31,10 +31,13 @@ export class EditRoleComponent extends ModalComponentBase implements OnInit, Mod
 	}
 
 	ngOnInit(): void {
+		this.saving = true;
 		zip(
             this.roleService.getAllPermissions(),
             this.roleService.get(this.id)
-        ).subscribe(([ permissions, result]: [ ListResultDtoOfPermissionDto, RoleDto]) => {
+		)
+		.finally(() => { this.saving = false; })
+		.subscribe(([ permissions, result]: [ ListResultDtoOfPermissionDto, RoleDto]) => {
 			
 			this.permissions = permissions;
 			this.role = result;

@@ -27,8 +27,9 @@ export class CreateRoleComponent extends ModalComponentBase implements OnInit, M
 	}
 
 	ngOnInit(): void {
-		
+		this.saving = true;
 		this.roleService.getAllPermissions()
+			.finally(() => { this.saving = false; })
 			.subscribe((permissions: ListResultDtoOfPermissionDto) => {
 				this.permissions = permissions;
 

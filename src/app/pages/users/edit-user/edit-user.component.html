@@ -1,6 +1,6 @@
-<form nz-form [formGroup]="form" *ngIf="modalVisible" id="frm_edit_user" (ngSubmit)="save()">
+<form *ngIf="modalVisible" nz-form [formGroup]="validateForm" (ngSubmit)="save()">
     <nz-modal [nzVisible]="modalVisible" [nzTitle]="l('EditUser')" [nzConfirmLoading]="loading" [nzContent]="modalContent" [nzFooter]="modalFooter"
-        (nzOnCancel)="handleCancel($event)">
+        (nzOnCancel)="close($event)">
         <ng-template #modalContent>
             <nz-tabset>
                 <nz-tab>
@@ -59,18 +59,15 @@
                     <ng-template #nzTabHeading>
                         用户角色
                     </ng-template>
-                    <!-- <label nz-checkbox formControlName="editrolegroup" *ngFor="let role of roles" [(ngModel)]="role.checked">
-                        <span>{{role.label}}</span>
-                    </label> -->
-                    <nz-checkbox-group formControlName="editrolegroup" [(ngModel)]="roles" ></nz-checkbox-group>
+                    <nz-checkbox-group formControlName="editrolegroup" [(ngModel)]="roleOptions" ></nz-checkbox-group>
                 </nz-tab>
             </nz-tabset>
         </ng-template>
         <ng-template #modalFooter>
-            <button nz-button [nzType]="'default'" [nzSize]="'large'" type="button" (click)="handleCancel($event)">
+            <button nz-button [nzType]="'default'" [nzSize]="'large'" type="button" (click)="close($event)">
                 {{l("Cancel")}}
             </button>
-            <button nz-button [nzType]="'primary'" [nzSize]="'large'" type="submit" [nzLoading]="isConfirmLoading">
+            <button nz-button [nzType]="'primary'" [nzSize]="'large'" type="submit" [nzLoading]="saving">
                 {{l("Save")}}
             </button>
         </ng-template>

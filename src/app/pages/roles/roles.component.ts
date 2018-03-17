@@ -6,8 +6,6 @@ import { RoleServiceProxy, RoleDto, PagedResultDtoOfRoleDto } from "shared/servi
 import { CreateRoleComponent } from "./create-role/create-role.component";
 import { EditRoleComponent } from "./edit-role/edit-role.component";
 
-import { NzModalService } from 'ng-zorro-antd';
-
 @Component({
 	selector: 'pro-page-roles',
 	templateUrl: './roles.component.html',
@@ -15,21 +13,24 @@ import { NzModalService } from 'ng-zorro-antd';
 })
 export class RolesComponent extends PagedListingComponentBase<RoleDto> {
 
+	loading = false;
 	dataItems: RoleDto[] = [];
 
 	constructor(
 		private injector: Injector,
 		private roleService: RoleServiceProxy,
-		private modalHelper: ModalHelper,
-		private modalService: NzModalService
+		private modalHelper: ModalHelper
 	) {
 		super(injector);
 	}
 
 	list(request: PagedRequestDto, pageNumber: number, finishedCallback: Function): void {
+		this.loading = true;
+
 		this.roleService.getAll(request.skipCount, request.maxResultCount)
 			.finally(() => {
 				finishedCallback();
+				this.loading = false;
 			})
 			.subscribe((result: PagedResultDtoOfRoleDto) => {
 				this.dataItems = result.items;
@@ -54,17 +55,11 @@ export class RolesComponent extends PagedListingComponentBase<RoleDto> {
 		);
 	}
 
-	// Show Modals
 	create(): void {
 		this.modalHelper.open(CreateRoleComponent).subscribe(res => this.refresh());
 	}
 
 	edit(role: RoleDto): void {
-		this.modalHelper.open(EditRoleComponent, { id: role.id }).subscribe(res => 
-			{
-				this.refresh()
-				console.log('refresh list')
-			}
-		);
+		this.modalHelper.open(EditRoleComponent, { id: role.id }).subscribe(res => this.refresh());
 	}
 }

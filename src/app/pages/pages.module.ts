@@ -39,7 +39,9 @@ import { CreateUserComponent } from "./users/create-user/create-user.component";
     ],
     entryComponents: [
         CreateRoleComponent,
-        EditRoleComponent
+        EditRoleComponent,
+        CreateUserComponent,
+        EditUserComponent
     ]
 })
 

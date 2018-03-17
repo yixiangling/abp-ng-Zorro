@@ -17,7 +17,7 @@
             </div>
         </div>
     </form>
-    <nz-table #nzTable [nzDataSource]="dataItems" [nzTotal]="totalItems" [(nzPageIndex)]="pageNumber" [(nzPageSize)]="pageSize" [nzLoading]="isTableLoading"
+    <nz-table #nzTable [nzDataSource]="dataItems" [nzTotal]="totalItems" [(nzPageIndex)]="pageNumber" [(nzPageSize)]="pageSize" [nzLoading]="loading"
         [nzShowSizeChanger]="true" (nzPageIndexChange)="refresh()" (nzPageSizeChange)="refresh()">
         <thead nz-thead>
             <tr>
