@@ -38,13 +38,12 @@ export class UsersComponent extends PagedListingComponentBase<UserDto> {
 
 	delete(user: UserDto): void {
 		this.message.confirm(
-			"Remove Users from Role and delete Role '" + user.name + "'?",
-			"Permanently delete this User",
+			"Delete user '" + user.fullName + "'?",
 			(result: boolean) => {
 				if (result) {
 					this.userService.delete(user.id)
 						.finally(() => {
-							abp.notify.info("Deleted User: " + user.name);
+							this.notify.info("Deleted User: " + user.name);
 							this.refresh();
 						})
 						.subscribe(() => { });
