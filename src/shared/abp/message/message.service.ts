@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { NzModalService } from 'ng-zorro-antd';
 
 @Injectable()
-export class AbpMessageService {
+export class MessageService {
 
     constructor(private modalSrv: NzModalService) { }
 

@@ -4,6 +4,8 @@ import { AppComponentBase } from '@shared/component-base';
 import { MenuService } from '@shared/layout/menu.service';
 import { MenuItem } from '@shared/layout/menu-item';
 
+import { Abp } from '@abp';
+
 @Component({
     templateUrl: './sidebar-nav.component.html',
     selector: 'sidebar-nav',
@@ -25,7 +27,8 @@ export class SideBarNavComponent extends AppComponentBase implements OnInit {
     }
 
     ngOnInit(){
-        abp.event.on('abp.theme-setting.collapsed', collapsed => {
+        // event.on
+        Abp.event.on('abp.theme-setting.collapsed', collapsed => {
 			this.isCollapsed = collapsed;
         });
     }

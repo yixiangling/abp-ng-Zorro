@@ -3,6 +3,8 @@ import { AccountServiceProxy } from '@shared/service-proxies/service-proxies'
 import { TenantChangeModalComponent } from './tenant-change-modal.component'
 import { AppComponentBase } from '@shared/component-base';
 
+import { Abp } from '@abp';
+
 @Component({
     selector: 'tenant-change',
     templateUrl: './tenant-change.component.html'
@@ -30,7 +32,7 @@ export class TenantChangeComponent extends AppComponentBase implements OnInit {
     }
 
     get isMultiTenancyEnabled(): boolean {        
-        return abp.multiTenancy.isEnabled;
+        return Abp.multiTenancy.isEnabled;
     }
 
     showChangeModal(): void{

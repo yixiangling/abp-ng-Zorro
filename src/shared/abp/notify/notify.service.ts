@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { NzNotificationService } from 'ng-zorro-antd';
 
 @Injectable()
-export class AbpNotifyService {
+export class NotifyService {
 
     constructor(
         private notifySrv: NzNotificationService

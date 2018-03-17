@@ -5,6 +5,8 @@ import { AppComponentBase } from '@shared/component-base';
 import { MenuService } from '@shared/layout/menu.service';
 import { MenuItem } from '@shared/layout/menu-item';
 
+import { Abp } from '@abp';
+
 @Component({
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.less']
@@ -99,20 +101,22 @@ export class AppComponent extends AppComponentBase implements OnInit, AfterViewI
 
 	ngOnInit(): void {
 
-		abp.event.on('abp.notifications.received', userNotification => {
-			abp.notifications.showUiNotifyForUserNotification(userNotification);
+		//--此处桌面通知功能应改成service
 
-			//Desktop notification
-			Push.create("AbpZeroTemplate", {
-				body: userNotification.notification.data.message,
-				icon: abp.appPath + 'assets/app-logo-small.png',
-				timeout: 6000,
-				onClick: function () {
-					window.focus();
-					this.close();
-				}
-			});
-		});
+		// Abp.event.on('abp.notifications.received', userNotification => {
+		// 	Abp.notifications.showUiNotifyForUserNotification(userNotification);
+
+		// 	//Desktop notification
+		// 	Push.create("AbpZeroTemplate", {
+		// 		body: userNotification.notification.data.message,
+		// 		icon: abp.appPath + 'assets/app-logo-small.png',
+		// 		timeout: 6000,
+		// 		onClick: function () {
+		// 			window.focus();
+		// 			this.close();
+		// 		}
+		// 	});
+		// });
 	}
 
 	ngAfterViewInit(): void {

@@ -3,7 +3,8 @@ import { AppComponentBase } from '@shared/component-base';
 import { AccountServiceProxy } from '@shared/service-proxies/service-proxies';
 import { IsTenantAvailableInput } from '@shared/service-proxies/service-proxies';
 import { AppTenantAvailabilityState } from '@shared/AppEnums';
-// import { ModalDirective } from 'ngx-bootstrap';
+
+import { Abp } from '@abp';
 
 @Component({
     selector: 'tenantChangeModal',
@@ -39,7 +40,7 @@ export class TenantChangeModalComponent extends AppComponentBase {
     save(): void {
 
         if (!this.tenancyName) {
-            abp.multiTenancy.setTenantIdCookie(undefined);;
+            Abp.multiTenancy.setTenantIdCookie(undefined);;
             this.close();
             location.reload();
             return;
@@ -54,7 +55,7 @@ export class TenantChangeModalComponent extends AppComponentBase {
             .subscribe((result) => {
                 switch (result.state) {
                     case AppTenantAvailabilityState.Available:
-                        abp.multiTenancy.setTenantIdCookie(result.tenantId);
+                        Abp.multiTenancy.setTenantIdCookie(result.tenantId);
                         this.close();
                         location.reload();
                         return;

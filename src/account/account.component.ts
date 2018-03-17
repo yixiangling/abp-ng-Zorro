@@ -2,6 +2,8 @@
 import { LoginService } from './login/login.service';
 import { AppComponentBase } from '@shared/component-base';
 
+import { Abp } from '@abp';
+
 @Component({
     templateUrl: './account.component.html',
     styleUrls: [
@@ -26,7 +28,7 @@ export class AccountComponent extends AppComponentBase implements OnInit {
     }
 
     showTenantChange(): boolean {
-        return abp.multiTenancy.isEnabled;
+        return Abp.multiTenancy.isEnabled;
     }
 
     ngOnInit(): void {

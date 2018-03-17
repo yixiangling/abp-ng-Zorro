@@ -1,4 +1,5 @@
 ﻿import { Injector, HostBinding, Component, OnInit } from '@angular/core';
+import { Abp } from '@abp';
 
 @Component({
     selector: 'app-root',
@@ -13,7 +14,8 @@ export class RootComponent implements OnInit {
     @HostBinding('class.aside-collapsed') get isCollapsed() { return this.layoutCollapsed; }
 
     ngOnInit() {
-        abp.event.on('abp.theme-setting.collapsed', collapsed => {
+        // event.on
+        Abp.event.on('abp.theme-setting.collapsed', collapsed => {
             this.layoutCollapsed = collapsed;
         });
     }

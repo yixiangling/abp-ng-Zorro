@@ -1,8 +1,9 @@
 import { NzModalSubject, NzMessageService } from 'ng-zorro-antd';
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 import { ModalHelper } from '@shared/helpers/modal.helper';
+
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
     selector: 'app-extras-poi-edit',
@@ -15,34 +16,23 @@ export class ExtrasPoiEditComponent implements OnInit {
     constructor(
         private modalHelper: ModalHelper,
         private subject: NzModalSubject,
-        public msgSrv: NzMessageService) { }
+        private httpClient: HttpClient,
+        public msgSrv: NzMessageService
+    ) { }
 
     ngOnInit() {
         if (this.i.id > 0) {
-            // this.http.get('./assets/pois.json').subscribe((res: any) => this.i = res.data[0]);
-            return abp.ajax({
-                url: '/assets/pois.json',
-                method: 'GET',
-            }).done(result => {
-                this.i = result.data[0]
-            });
+            this.httpClient.get('./assets/pois.json').subscribe((res: any) => this.i = res.data[0]);
         }
     }
 
     save() {
-        // this.http.get('./assets/pois.json').subscribe(() => {
-        //     this.msgSrv.success('保存成功，只是模拟，实际未变更');
-        //     this.subject.next('true');
-        //     this.close();
-        // });
-        return abp.ajax({
-            url: '/assets/pois.json',
-            method: 'GET',
-        }).done(result => {
+        this.httpClient.get('./assets/pois.json').subscribe(() => {
             this.msgSrv.success('保存成功，只是模拟，实际未变更');
             this.subject.next('true');
             this.close();
         });
+        
     }
 
     close() {

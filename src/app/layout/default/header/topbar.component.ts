@@ -1,6 +1,8 @@
 ﻿import { Component, Injector, OnInit, ViewEncapsulation } from '@angular/core';
 import { AppComponentBase } from '@shared/component-base';
 
+import { Abp } from '@abp';
+
 @Component({
     templateUrl: './topbar.component.html',
     selector: 'top-bar',
@@ -17,13 +19,15 @@ export class TopBarComponent extends AppComponentBase implements OnInit {
     }
 
     ngOnInit(){
-        abp.event.on('abp.theme-setting.collapsed', collapsed => {
+        // event.on
+        Abp.event.on('abp.theme-setting.collapsed', collapsed => {
 			this.isCollapsed = collapsed;
 		});
     }
 
     toggleCollapsedSideabar() {
-        abp.event.trigger('abp.theme-setting.collapsed', !this.isCollapsed);
+        //event.trigger
+        Abp.event.trigger('abp.theme-setting.collapsed', !this.isCollapsed);
     }
 
     searchToggleChange() {

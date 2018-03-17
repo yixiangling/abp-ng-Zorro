@@ -29,6 +29,9 @@ ABP core免费版的默认angular工程使用到的UI组件替换成 ng-Zorro，
 5. 从delon迁移的组件存放在 src/shared/components下
 6. **新增示范代码（src/app/pages/roles|users/*）目前只有这里的组件代码是符合ng-zorro规则，同时符合abp需要的代码。**
 7. **增加abp国际化与ng-zorro国际化关联，在切换abp语言时同时切换ng-zorro使用的语言（ng-zorro将发布07版本后此处实现也会同步修改）**
+8. **移除abp-ng2-module与abp-web-resources包，复制代码到/src/shared/abp下（因message,notify等部分服务需替换成使用ng-zorro的相关服务实现）同时移除jquery包。这样做可以进一步缩小首次加载文件体积**
+
+备注：当前正在等待ng-alain发布新版本后更新相关代码并同时升级ng-zorro
 
 
 # 使用方法

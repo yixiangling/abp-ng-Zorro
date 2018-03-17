@@ -2,6 +2,8 @@ import { Component, ElementRef, Inject, OnInit } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { NzMessageService } from 'ng-zorro-antd';
 
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+
 @Component({
     selector: 'app-iconsfont',
     templateUrl: './iconsfont.component.html'
@@ -11,16 +13,13 @@ export class IconsFontComponent implements OnInit {
 
     constructor(
         private msg: NzMessageService,
+        private httpClient: HttpClient,
         @Inject(DOCUMENT) private dom: Document, private _el: ElementRef) { }
 
     ngOnInit(): void {
         // this.http.get('./assets/iconsfont.json').subscribe((res: any) => this.data = res);
-        return abp.ajax({
-            url: '/assets/iconsfont.json',
-            method: 'GET',
-        }).done(result => {
-            this.data = result;
-        });
+        this.httpClient.get('/assets/iconsfont.json').subscribe((res: any) => this.data = res);
+
     }
 
     copy(group: any, item: any) {

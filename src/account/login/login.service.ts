@@ -8,6 +8,7 @@ import { MessageService } from '@abp/message/message.service';
 import { LogService } from '@abp/log/log.service';
 import { TokenService } from '@abp/auth/token.service';
 import { UtilsService } from '@abp/utils/utils.service';
+import { Abp } from '@abp';
 
 import * as _ from 'lodash';
 
@@ -71,7 +72,7 @@ export class LoginService {
             AppConsts.authorization.encrptedAuthTokenName,
             encryptedAccessToken,
             tokenExpireDate,
-            abp.appPath
+            Abp.appPath
         );
 
         var initialUrl = UrlHelper.initialUrl;

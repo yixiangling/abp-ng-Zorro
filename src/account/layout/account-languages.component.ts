@@ -1,6 +1,8 @@
 ﻿import { Component, OnInit, Injector } from '@angular/core';
 import { AppComponentBase } from '@shared/component-base';
 
+import { Abp, abp } from '@abp';
+
 import * as _ from 'lodash';
 
 @Component({
@@ -27,11 +29,12 @@ export class AccountLanguagesComponent extends AppComponentBase implements OnIni
     }
 
     changeLanguage(languageName: string): void {
-        abp.utils.setCookieValue(
+        Abp.utils.setCookieValue(
             "Abp.Localization.CultureName",
             languageName,
             new Date(new Date().getTime() + 5 * 365 * 86400000), //5 year
-            abp.appPath
+            Abp.appPath,
+            null
         );
 
         location.reload();

@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule, Injector, APP_INITIALIZER, LOCALE_ID } from '@angular/core';
-
-import { AbpModule, ABP_HTTP_PROVIDER } from '@abp/abp.module';
+import { HttpClientModule } from '@angular/common/http';
+import { AbpModule, ABP_HTTP_PROVIDER, Abp } from '@abp';
 
 
 import { SharedModule } from '@shared/shared.module';
@@ -18,9 +18,9 @@ import { API_BASE_URL } from '@shared/service-proxies/service-proxies';
 import { RootComponent } from './root.component';
 import { AppPreBootstrap } from './AppPreBootstrap';
 
-import { AbpMessageService } from './shared/helpers/message.service';
-import { AbpNotifyService } from './shared/helpers/notify.service';
-import { LocalizationService } from '@abp/localization/localization.service';
+// import { AbpMessageService } from './shared/helpers/message.service';
+// import { AbpNotifyService } from './shared/helpers/notify.service';
+import { LocalizationService } from '@abp';
 
 //ng-zorro 国际化（ng-zorro0.7版本正式发布后此处会更新）
 import { NzLocaleService } from 'ng-zorro-antd';
@@ -64,7 +64,7 @@ function setNgZorroLocale(injector: Injector): void {
 
 	let nzLocalService = injector.get(NzLocaleService);
 
-	let langName = abp.localization.currentLanguage.name;
+	let langName = Abp.localization.currentLanguage.name;
 	console.log('current language: ' + langName);
 	let lang: any;
 	switch (langName) {
@@ -86,33 +86,33 @@ function setNgZorroLocale(injector: Injector): void {
 	nzLocalService.setLocale(lang);
 }
 
-function replaceAbpModule(injector: Injector): void {
-	abp.message = injector.get(AbpMessageService);
-	abp.notify = injector.get(AbpNotifyService);
-}
+// function replaceAbpModule(injector: Injector): void {
+// 	Abp.message = injector.get(AbpMessageService);
+// 	Abp.notify = injector.get(AbpNotifyService);
+// }
 
 export function appInitializerFactory(injector: Injector) {
 	return () => {
 
-		abp.ui.setBusy();
+		// abp.ui.setBusy();
 
 		fixedLocale();
 		
-		replaceAbpModule(injector);
+		// replaceAbpModule(injector);
 
 		return new Promise<boolean>((resolve, reject) => {
-			AppPreBootstrap.run(() => {
+			AppPreBootstrap.run(injector, () => {
 				var appSessionService: AppSessionService = injector.get(AppSessionService);
 				appSessionService.init().then(
 					(result) => {
 						setNgZorroLocale(injector);
 
-						abp.ui.clearBusy();
+						// abp.ui.clearBusy();
 						preloader();
 						resolve(result);
 					},
 					(err) => {
-						abp.ui.clearBusy();
+						// abp.ui.clearBusy();
 						preloader();
 						reject(err);
 					}
@@ -127,7 +127,7 @@ export function getRemoteServiceBaseUrl(): string {
 }
 
 export function getCurrentLanguage(): string {
-	return abp.localization.currentLanguage.name;
+	return Abp.localization.currentLanguage.name;
 }
 
 
@@ -136,6 +136,7 @@ export function getCurrentLanguage(): string {
 	imports: [
 		BrowserModule,
 		BrowserAnimationsModule,
+		HttpClientModule,
 		SharedModule.forRoot(),
 		DelonComponentModule.forRoot(),
 		AbpModule,

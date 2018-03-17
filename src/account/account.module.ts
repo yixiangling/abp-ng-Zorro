@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 
-import { AbpModule } from '@abp/abp.module';
+import { AbpModule } from '@abp';
 
 import { AccountRoutingModule } from './account-routing.module';
 

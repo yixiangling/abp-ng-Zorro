@@ -3,6 +3,8 @@ import { DOCUMENT } from '@angular/platform-browser';
 import { SettingService } from '@abp/settings/setting.service';
 import { AppComponentBase } from '@shared/component-base';
 
+import { Abp } from '@abp';
+
 type ThemeType = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H' | 'I' | 'J';
 
 @Component({
@@ -73,6 +75,7 @@ export class HeaderThemeComponent extends AppComponentBase {
         bodyEl.classList.add(`theme-${name.toLowerCase()}`);
         this.currentTheme = name;
 
-        abp.event.trigger('abp.theme-setting.changed', name);
+        //event.trigger
+        Abp.event.trigger('abp.theme-setting.changed', name);
     }
 }

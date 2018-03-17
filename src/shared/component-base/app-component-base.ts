@@ -9,6 +9,8 @@ import { MessageService } from '@abp/message/message.service';
 import { AbpMultiTenancyService } from '@abp/multi-tenancy/abp-multi-tenancy.service';
 import { AppSessionService } from '@shared/session/app-session.service';
 
+import { Abp } from '@abp';
+
 export abstract class AppComponentBase {
 
     localizationSourceName = AppConsts.localization.defaultLocalizationSourceName;
@@ -47,7 +49,7 @@ export abstract class AppComponentBase {
         }
 
         args.unshift(localizedText);
-        return abp.utils.formatString.apply(this, args);
+        return Abp.utils.formatString.apply(this, args);
     }
 
     isGranted(permissionName: string): boolean {

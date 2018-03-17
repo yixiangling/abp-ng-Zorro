@@ -2,6 +2,8 @@ import { Component, OnInit, Injector, ViewEncapsulation } from '@angular/core';
 import { AppComponentBase } from '@shared/component-base';
 import { UserServiceProxy, ChangeUserLanguageDto } from '@shared/service-proxies/service-proxies';
 
+import { Abp, abp } from '@abp';
+
 import * as _ from 'lodash';
 
 @Component({
@@ -46,11 +48,12 @@ export class HeaderI18nComponent extends AppComponentBase implements OnInit {
         input.languageName = languageName;
   
         this._userService.changeLanguage(input).subscribe(() => {
-            abp.utils.setCookieValue(
+            Abp.utils.setCookieValue(
                 'Abp.Localization.CultureName',
                 languageName,
                 new Date(new Date().getTime() + 5 * 365 * 86400000), //5 year
-                abp.appPath
+                Abp.appPath,
+                null
             );
   
             window.location.reload();

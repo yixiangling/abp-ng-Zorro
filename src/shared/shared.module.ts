@@ -135,11 +135,9 @@ import { YNPipe } from './pipes/yn.pipe';
 const PIPES = [MomentDatePipe, YNPipe];
 
 import { ModalHelper } from './helpers/modal.helper';
-import { AbpMessageService } from './helpers/message.service';
-import { AbpNotifyService } from './helpers/notify.service';
 import { MenuService } from './layout/menu.service';
 import { ColorsService } from './layout/colors.service'
-const HELPERS = [ AbpMessageService, AbpNotifyService, MenuService, ColorsService ];
+const HELPERS = [ MenuService, ColorsService ];
 
 
 @NgModule({

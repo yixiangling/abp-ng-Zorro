@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { AppComponentBase } from '@shared/component-base';
 import { LoginService } from './login.service';
 import { accountModuleAnimation } from '@shared/animations/routerTransition';
-import { AbpSessionService } from '@abp/session/abp-session.service';
+import { AbpSessionService } from '@abp';
 
 @Component({
     templateUrl: './login.component.html',

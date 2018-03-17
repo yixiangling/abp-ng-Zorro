@@ -3,6 +3,8 @@ import { NzMessageService } from 'ng-zorro-antd';
 import { ModalHelper } from '@shared/helpers/modal.helper';
 import { ExtrasPoiEditComponent } from './edit/edit.component';
 
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+
 @Component({
     selector: 'app-extras-poi',
     templateUrl: './poi.component.html'
@@ -19,6 +21,7 @@ export class ExtrasPoiComponent implements OnInit {
 
     constructor(
         public msgSrv: NzMessageService,
+        private httpClient: HttpClient,
         private modalHelper: ModalHelper) { }
 
     ngOnInit() {
@@ -29,14 +32,7 @@ export class ExtrasPoiComponent implements OnInit {
         if (reload) {
             this.s.pi = 1;
         }
-        // this.http.get('./assets/pois.json', this.s).subscribe((res: any) => {
-        //     this.list = res.data;
-        //     this.total = res.total;
-        // });
-        return abp.ajax({
-            url: '/assets/pois.json',
-            method: 'GET',
-        }).done(res => {
+        this.httpClient.get('./assets/pois.json', this.s).subscribe((res: any) => {
             this.list = res.data;
             this.total = res.total;
         });
