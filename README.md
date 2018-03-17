@@ -28,6 +28,7 @@ ABP core免费版的默认angular工程使用到的UI组件替换成 ng-Zorro，
 4. 增加MenuService用于管理应用程序菜单数据（此服务功能与delon/theme的MenuService实现有所不同）
 5. 从delon迁移的组件存放在 src/shared/components下
 6. **新增示范代码（src/app/pages/roles|users/*）目前只有这里的组件代码是符合ng-zorro规则，同时符合abp需要的代码。**
+7. **增加abp国际化与ng-zorro国际化关联，在切换abp语言时同时切换ng-zorro使用的语言（ng-zorro将发布07版本后此处实现也会同步修改）**
 
 
 # 使用方法

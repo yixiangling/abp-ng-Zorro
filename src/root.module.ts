@@ -18,7 +18,6 @@ import { API_BASE_URL } from '@shared/service-proxies/service-proxies';
 import { RootComponent } from './root.component';
 import { AppPreBootstrap } from './AppPreBootstrap';
 
-
 // third
 import { UEditorModule } from 'ngx-ueditor';
 
