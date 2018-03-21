@@ -23,6 +23,9 @@
       "@node_modules/*": [ "../node_modules/*" ]
     }
   },
+  "angularCompilerOptions": {
+    "preserveWhitespaces": false
+  },
   "exclude": [
     "node_modules"
   ]

@@ -45,10 +45,10 @@ export class NoticeIconComponent {
     }
     private _popoverVisible = false;
 
-    @Output() popupVisibleChange = new EventEmitter<boolean>();
+    @Output() popoverVisibleChange = new EventEmitter<boolean>();
 
     onVisibleChange(result: boolean) {
-        this.popupVisibleChange.emit(result);
+        this.popoverVisibleChange.emit(result);
     }
 
     onSelect(i: any) {

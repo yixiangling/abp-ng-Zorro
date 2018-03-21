@@ -1,5 +1,6 @@
 ﻿import { NgModule  , Injector} from '@angular/core';
 import { HttpModule, JsonpModule, Http, XHRBackend, RequestOptions } from '@angular/http';
+import { CookieService } from 'ngx-cookie-service';
 import { MessageService } from './message/message.service';
 import { NotifyService } from './notify/notify.service';
 import { LogService } from './log/log.service';
@@ -38,6 +39,7 @@ export let ABP_HTTP_PROVIDER = {
     ],
 
     providers: [
+        CookieService,
         AbpHttpConfiguration,
         ABP_HTTP_PROVIDER,
         MessageService,
