@@ -20,8 +20,9 @@ import * as moment from 'moment';
  */
 @Pipe({ name: 'toDate' })
 export class MomentDatePipe implements PipeTransform {
-    transform(value: Date, formatString: string = 'YYYY-MM-DD HH:mm'): string {
+    transform(value?: Date | moment.Moment, formatString: string = 'YYYY-MM-DD HH:mm'): string {
         if (value) {
+            let d = (value instanceof Date) ? moment(value) : value;
             if (formatString === 'fn')
                 return moment(value).fromNow();
             return moment(value).format(formatString);
