@@ -1,4 +1,4 @@
-<form nz-form [formGroup]="validateForm" (ngSubmit)="save()">
+<form nz-form [formGroup]="validateForm" (ngSubmit)="save($event)">
     <div class="modal-header">
         <div class="modal-title">{{l('EditUser')}}</div>
     </div>

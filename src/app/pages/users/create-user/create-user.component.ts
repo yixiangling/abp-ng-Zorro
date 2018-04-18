@@ -19,6 +19,8 @@ export class CreateUserComponent extends ModalComponentBase implements OnInit {
     roles: ListResultDtoOfRoleDto = null;
     roleOptions: { label: string, value: string, checked: boolean }[];
 
+    confirmPassword: String;
+
     constructor(
         injector: Injector,
         private userService: UserServiceProxy,
