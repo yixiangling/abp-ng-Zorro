@@ -1,3 +1,6 @@
+
+## [群内问题&回答整理](https://github.com/yixiangling/abp-ng-Zorro/wiki/%E7%BE%A4%E5%86%85%E9%97%AE%E9%A2%98-%E5%9B%9E%E7%AD%94%E6%95%B4%E7%90%86)
+
 # 项目说明
 这是一个用来替换ABP 免费模板中前端的项目。
 
@@ -12,7 +15,6 @@ ABP core免费版的默认angular工程使用到的UI组件替换成 ng-Zorro，
 登录帐号密码为ABP默认帐号密码admin/123qwe
 
 angular文件较大，服务器带宽较小，需要多等待一下！！！
-
 
 # 改动说明
 由于有代码迁移，因此大量复制了[delon](https://github.com/cipchk/delon)的代码，在此向delon作者 [cipchk](https://github.com/cipchk) 赠送小红花 :hibiscus: 表示感谢！
