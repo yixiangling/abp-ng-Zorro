@@ -1,57 +1,61 @@
 <form *ngIf="modalVisible" nz-form [formGroup]="validateForm" (ngSubmit)="save()">
-	<nz-modal [nzVisible]="modalVisible" [nzTitle]="l('CreateNewRole')" [nzConfirmLoading]="loading" [nzContent]="modalContent"
-	 [nzFooter]="modalFooter" (nzOnCancel)="close($event)">
-		<ng-template #modalContent>
-			<fieldset>
-				<div nz-form-item nz-row>
-					<div nz-form-label nz-col [nzSm]="4">
-						<label for="roleName" nz-form-item-required>{{l("RoleName")}}</label>
-					</div>
-					<div nz-form-control nz-col [nzSm]="8" nzHasFeedback [nzValidateStatus]="getFormControl('roleName')">
-						<nz-input formControlName="roleName" [(ngModel)]="role.name" nzPlaceHolder="请输入小于等于32的字符" [nzId]="'roleName'"></nz-input>
-						<div nz-form-explain *ngIf="getFormControl('roleName').dirty&&getFormControl('roleName').hasError('maxlength')">字符长度小于等于32</div>
-						<div nz-form-explain *ngIf="getFormControl('roleName').dirty&&getFormControl('roleName').hasError('required')">请输入姓</div>
-					</div>
 
-					<div nz-form-label nz-col [nzSm]="4">
-						<label for="displayName" nz-form-item-required>{{l("DisplayName")}}</label>
-					</div>
-					<div nz-form-control nz-col [nzSm]="8" nzHasFeedback [nzValidateStatus]="getFormControl('displayName')">
-						<nz-input formControlName="displayName" [(ngModel)]="role.displayName" nzPlaceHolder="请输入小于等于32的字符" [nzId]="'displayName'"></nz-input>
-						<div nz-form-explain *ngIf="getFormControl('displayName').dirty&&getFormControl('displayName').hasError('maxlength')">字符长度小于等于32</div>
-						<div nz-form-explain *ngIf="getFormControl('displayName').dirty&&getFormControl('displayName').hasError('required')">请输入名</div>
-					</div>
-				</div>
+	<div class="modal-header">
+		<div class="modal-title">{{l('CreateNewRole')}}</div>
+	</div>
 
-				<div nz-form-item nz-row>
-					<div nz-form-label nz-col [nzSm]="4">
-						<label for="description" nz-form-item-required>{{l("RoleDescription")}}</label>
-					</div>
-					<div nz-form-control nz-col [nzSm]="20" nzHasFeedback [nzValidateStatus]="getFormControl('description')">
-						<nz-input formControlName="description" [(ngModel)]="role.description" [nzType]="'textarea'" [nzSize]="'large'" nzPlaceHolder="请输入小于等于32的字符" [nzId]="'description'"></nz-input>
-						<div nz-form-explain *ngIf="getFormControl('description').dirty&&getFormControl('description').hasError('maxlength')">字符长度小于等于32</div>
-						<div nz-form-explain *ngIf="getFormControl('description').dirty&&getFormControl('description').hasError('required')">请输入名</div>
-					</div>
-				</div>
+	<fieldset>
+		<div nz-form-item nz-row>
+			<div nz-form-label nz-col [nzSm]="4">
+				<label for="roleName" nz-form-item-required>{{l("RoleName")}}</label>
+			</div>
+			<div nz-form-control nz-col [nzSm]="8" nzHasFeedback [nzValidateStatus]="getFormControl('roleName')">
+				<nz-input formControlName="roleName" [(ngModel)]="role.name" nzPlaceHolder="请输入小于等于32的字符" [nzId]="'roleName'"></nz-input>
+				<div nz-form-explain *ngIf="getFormControl('roleName').dirty&&getFormControl('roleName').hasError('maxlength')">字符长度小于等于32</div>
+				<div nz-form-explain *ngIf="getFormControl('roleName').dirty&&getFormControl('roleName').hasError('required')">请输入姓</div>
+			</div>
 
-				<div nz-form-item nz-row>
-					<div nz-form-label nz-col [nzSm]="4">
-						<label>{{l("Permissions")}}</label>
-					</div>
-					<div nz-form-control nz-col [nzSm]="20">
-						<nz-checkbox-group formControlName="permissions" [(ngModel)]="permissionOptions"></nz-checkbox-group>
-					</div>
-				</div>
+			<div nz-form-label nz-col [nzSm]="4">
+				<label for="displayName" nz-form-item-required>{{l("DisplayName")}}</label>
+			</div>
+			<div nz-form-control nz-col [nzSm]="8" nzHasFeedback [nzValidateStatus]="getFormControl('displayName')">
+				<nz-input formControlName="displayName" [(ngModel)]="role.displayName" nzPlaceHolder="请输入小于等于32的字符" [nzId]="'displayName'"></nz-input>
+				<div nz-form-explain *ngIf="getFormControl('displayName').dirty&&getFormControl('displayName').hasError('maxlength')">字符长度小于等于32</div>
+				<div nz-form-explain *ngIf="getFormControl('displayName').dirty&&getFormControl('displayName').hasError('required')">请输入名</div>
+			</div>
+		</div>
 
-			</fieldset>
-		</ng-template>
-		<ng-template #modalFooter>
-			<button nz-button [nzType]="'default'" [nzSize]="'large'" type="button" (click)="close($event)">
-				{{l("Cancel")}}
-			</button>
-			<button nz-button [nzType]="'primary'" [nzSize]="'large'" type="submit" [nzLoading]="saving">
-				{{l("Save")}}
-			</button>
-		</ng-template>
-	</nz-modal>
+		<div nz-form-item nz-row>
+			<div nz-form-label nz-col [nzSm]="4">
+				<label for="description" nz-form-item-required>{{l("RoleDescription")}}</label>
+			</div>
+			<div nz-form-control nz-col [nzSm]="20" nzHasFeedback [nzValidateStatus]="getFormControl('description')">
+				<nz-input formControlName="description" [(ngModel)]="role.description" [nzType]="'textarea'" [nzSize]="'large'" nzPlaceHolder="请输入小于等于32的字符"
+				 [nzId]="'description'"></nz-input>
+				<div nz-form-explain *ngIf="getFormControl('description').dirty&&getFormControl('description').hasError('maxlength')">字符长度小于等于32</div>
+				<div nz-form-explain *ngIf="getFormControl('description').dirty&&getFormControl('description').hasError('required')">请输入名</div>
+			</div>
+		</div>
+
+		<div nz-form-item nz-row>
+			<div nz-form-label nz-col [nzSm]="4">
+				<label>{{l("Permissions")}}</label>
+			</div>
+			<div nz-form-control nz-col [nzSm]="20">
+				<nz-checkbox-group formControlName="permissions" [(ngModel)]="permissionOptions"></nz-checkbox-group>
+			</div>
+		</div>
+
+	</fieldset>
+
+
+	<div class="modal-footer">
+		<button nz-button [nzType]="'default'" [nzSize]="'large'" type="button" (click)="close($event)">
+			{{l("Cancel")}}
+		</button>
+		<button nz-button [nzType]="'primary'" [nzSize]="'large'" type="submit" [nzLoading]="saving">
+			{{l("Save")}}
+		</button>
+	</div>
+
 </form>
