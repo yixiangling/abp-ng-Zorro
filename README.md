@@ -1,3 +1,8 @@
+# 版本更新
+
+此库已停止维护，请使用最新提供的[ABP & ng-alain](https://github.com/yixiangling/abp-ng-alain)
+
+[ABP & ng-alain](https://github.com/yixiangling/abp-ng-alain) 支持最新版本的ng-alain、angular6、ABP免费模板4.0+
 
 ## [群内问题&回答整理](https://github.com/yixiangling/abp-ng-Zorro/wiki/%E7%BE%A4%E5%86%85%E9%97%AE%E9%A2%98-%E5%9B%9E%E7%AD%94%E6%95%B4%E7%90%86)
 
