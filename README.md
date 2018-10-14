@@ -107,3 +107,7 @@ angular文件较大，服务器带宽较小，需要多等待一下！！！
 [delon](https://github.com/cipchk/delon) cipchk/delon是ng-alain的业务组件库
 
 ~~[DonaldTdz/photostory](https://github.com/DonaldTdz/photostory) （src/app/pages/*）部分代码来源~~
+
+## 如果你喜欢这个项目，可以扫码打赏一下给服务器充点带宽 ^Q^
+
+![打赏码](http://abp-ng-alain.cn-panda.cn/good.jpg) 
